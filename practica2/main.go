@@ -9,7 +9,7 @@ import (
 // Mia Esto es una estructura de prueba.
 type Mia struct {
 	Nombre   string `json:"nombre"`
-	Edad     int    `json:"edad"`
+	Edad     int    `json:"edad,omitempty"`
 	IsHombre bool   `json:"ishombre"`
 }
 
@@ -23,7 +23,6 @@ func main() {
 	fmt.Println("Probando Estructuras")
 	mm := Mia{
 		Nombre:   "Javier Castillo Calvo",
-		Edad:     44,
 		IsHombre: true,
 	}
 
@@ -31,4 +30,5 @@ func main() {
 	must(err)
 
 	fmt.Println("<", string(buf), ">")
+	fmt.Printf("%#v\r\n", mm)
 }
