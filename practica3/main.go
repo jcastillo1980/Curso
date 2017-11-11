@@ -2,7 +2,9 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"os"
+	"os/exec"
 	"strings"
 )
 
@@ -16,4 +18,19 @@ func main() {
 			fmt.Printf("[%s]--->[%s]\r\n", variable[0], variable[1])
 		}
 	}
+
+	cmd := exec.Command("ls", "-alh")
+	cmd.Stdin = os.Stdin
+	cmd.Stderr = os.Stderr
+	cmd.Stdout = os.Stdout
+	err := cmd.Start()
+	if err != nil {
+		log.Fatalln(err)
+	}
+	err = cmd.Wait()
+	if err != nil {
+		log.Fatalln(err)
+	}
+
+	fmt.Println("----------OK----------")
 }
