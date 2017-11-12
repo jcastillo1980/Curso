@@ -3,6 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
+	"os"
 	"time"
 )
 
@@ -19,4 +20,5 @@ func main() {
 	fmt.Printf("%#v\r\nwait....", flag.Args())
 	time.Sleep(*ValorEspera)
 	fmt.Println("")
+	os.Stdout.Write([]byte("Hola\r\n"))
 }
