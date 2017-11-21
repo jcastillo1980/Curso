@@ -1,0 +1,1119 @@
+Probando NewRequest
+http.Header{"Cache-Control":[]string{"no-cache"}, "Content-Type":[]string{"text/html; charset=UTF-8"}, "Vary":[]string{"Accept-Encoding"}, "Date":[]string{"Tue, 21 Nov 2017 22:22:12 GMT"}, "Expires":[]string{"0"}, "Server":[]string{"Microsoft-IIS/8.0"}, "X-Powered-By":[]string{"PHP/5.6.17", "ASP.NET"}}
+		
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<meta name="keywords" content="Telemedida de Energía, Telecontrol GSM/GPRS/3G, M2M, Desarrollo Software, Desarrollo Hardware, Domótica"> 
+	<meta http-equiv="keywords" content="Telemedida de Energía, Telecontrol GSM/GPRS/3G, M2M, Desarrollo Software, Desarrollo Hardware, Domótica"> 
+	<meta name="description" content="Xuitec Ingenieria s.l. Telemedida de energía, telecontrol GSM/GPRS/3G, M2M, desarrollo de software y hardware, domótica">
+	<meta http-equiv="description" content="Xuitec Ingenieria s.l. Telemedida de energía, telecontrol GSM/GPRS/3G, M2M, desarrollo de software y hardware, domótica">
+
+
+	<title>Xuitec S.L. (Telemedida de energía, telecontrol GSM/GPRS/3G, M2M, desarrollo software y hardware, domótica)</title>
+	<link href="/favicon.ico" rel="favicon" type="image/x-icon">
+
+
+	<!-- ESTILOS CSS -->
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="/plugins/bootstrap/css/bootstrap.min.css">
+	
+	<!-- FontAwesome -->
+	<link rel="stylesheet" type="text/css" href="/fonts/font-awesome-4.6.3/css/font-awesome.min.css">
+
+	<!-- Animate.css library -->
+	<link href="/plugins/animate/animate.min.css" rel="stylesheet">
+
+	<!-- OwlCarousel -->
+	<link rel="stylesheet" href="/plugins/owlcarousel/assets/owl.carousel.css">
+
+
+	<!-- Propios -->
+	<link rel="stylesheet" type="text/css" href="/css/styles.css">
+	<link rel="stylesheet" type="text/css" href="/css/header.css">
+	<link rel="stylesheet" type="text/css" href="/css/inicio.css">
+	<link rel="stylesheet" type="text/css" href="/css/carrusel-anim.css">
+	<link rel="stylesheet" type="text/css" href="/css/carrusel-owl.css">
+	<link rel="stylesheet" type="text/css" href="/css/productos.css">
+	<link rel="stylesheet" type="text/css" href="/css/soluciones.css">
+	<link rel="stylesheet" type="text/css" href="/css/vpn.css">
+	<link rel="stylesheet" type="text/css" href="/css/contacto.css">
+	<link rel="stylesheet" type="text/css" href="/css/footer.css">
+	<link rel="stylesheet" type="text/css" href="/css/identifica.css">
+
+	<!--FUENTES-->
+	<link rel="stylesheet" type="text/css" href="/fonts/roboto/roboto.css">
+	<!--<link href='https://fonts.googleapis.com/css?family=Oxygen:700' rel='stylesheet' type='text/css'>-->
+	<link rel="stylesheet" type="text/css" href="/fonts/oxygen/oxygen.css">
+	
+	<!--SCRIPTS-->
+
+	<script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-20922723-1']);
+		_gaq.push(['_trackPageview']);
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+
+
+</head>
+
+<body>
+
+	
+
+<div id="cabecera" class="container-fluid">
+	<nav class="navbar navbar-inverse">
+		<div class="container">
+			<div id="topBar" class="row">
+				<div id="topLogo" class="col-xs-6">
+					<a href="/inicio">
+						<img src="/graf/logo-xuitec-redondeado.png"
+							alt="Xuitec - Logo de la empresa" 
+							title="Xuitec - Logo de la empresa">
+					</a>
+				</div>
+				<div id="topBar-contactar" class="col-xs-6 text-right visible-sm visible-md visible-lg" >
+					<i class="fa fa-phone"></i>&nbsp;+34 690 82 54 56
+					<br>
+					<i class="fa fa-phone"></i>&nbsp;+34 91 134 15 90
+					<br>
+					<i class="fa fa-envelope"></i>&nbsp;info@xuitec.com
+					<br>
+				</div>
+	
+				<div class="navbar-header">
+					<button id="navbarToggle" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu-collapse" aria-expanded="false">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				</div> <!-- /.navbar-header -->
+			</div> <!-- topBar -->
+		</div>
+
+		<!-- Enlaces, formularios y otro contenido para collapsar -->
+		<div id="menu-collapse" class="collapse navbar-collapse text-center">
+			<ul id="menu" class="nav navbar-nav">
+				<li id="m_inicio">
+					<a href="/inicio">Inicio</a>
+				</li>
+				<li id="m_empresa" >
+					<a href="/empresa"><i class="fa fa-home" aria-hidden="true"></i> Quienes somos</a>
+				</li>
+				<li id="m_productos" class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" 
+						role="button" aria-haspopup="true" aria-expanded="false">
+						<i class="fa fa-gear" aria-hidden="true"></i> Productos <span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu">
+						<li>
+							<a href="/categoria">Todos nuestros productos</a>
+						</li>
+						<li role="separator" class="divider"></li>
+						<li>
+	<a href='/Producto/49'>MCI-3</a>
+</li>
+<li role='separator' class='divider'></li>
+						<li>
+							<a href="/categoria/1">Soluciones industriales ó profesionales</a>
+						</li>
+						<li role="separator" class="divider"></li>
+						<li>
+							<a href="/categoria/2">Equipos industriales ó profesionales</a>
+						</li>
+						<li>
+							<a href="/categoria/3">Accesorios equipos industriales</a>
+						</li>
+						<li role="separator" class="divider"></li>
+						<li>
+							<a href="/categoria/4">Equipos domóticos ó de consumo</a>
+						</li>
+						<li>
+							<a href="/categoria/5">Accesorios para equipos domóticos</a>
+						</li>
+						<li>
+							<a href="/categoria/6">Accesorios X10</a>
+						</li>
+
+					</ul>
+				</li>
+
+				<li id="m_soluciones" class="dropdown">
+
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" 
+						role="button" aria-haspopup="true" aria-expanded="false">
+						<i class="fa fa-tasks" aria-hidden="true"></i> Soluciones <span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu">
+						<li>
+							<a href="/Soluciones">Todas nuestras soluciones</a>
+						</li>
+						<li role="separator" class="divider"></li>
+						<li>
+	<a href='/Soluciones/vpn'>VPN para M2M</a>
+</li>
+<li>
+	<a href='/Soluciones/#Proyectosdecomunicaciones'>Proyectos de comunicaciones</a>
+</li>
+<li>
+	<a href='/Soluciones/#Proyectosydesarrollodesoftware'>Proyectos y desarrollo de software</a>
+</li>
+					</ul>
+				</li>
+
+				<li id="m_noticias">
+					
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" 
+						role="button" aria-haspopup="true" aria-expanded="false">
+						<i class="fa fa-bullhorn" aria-hidden="true"></i> Noticias <span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu">
+						<li>
+							<a href="/Noticias">Todas nuestras noticias</a>
+						</li>
+						<li role="separator" class="divider"></li>
+						<li>
+	<a href='/Noticias/1'>Nuevo sistema de análisis de energía escalable</a>
+</li>
+<li>
+	<a href='/Noticias/2'>Nuevo sistema de alarma de temperatura escalable</a>
+</li>
+<li>
+	<a href='/Noticias/3'>Nuevo sistema de supervisión de campos solares</a>
+</li>
+<li>
+	<a href='/Noticias/4'>Movilidad M2M</a>
+</li>
+					</ul>
+				</li>
+
+				<li id="m_contacto">
+					<a href="/contacto"><i class="fa fa-globe" aria-hidden="true"></i> Contacto</a>
+				</li>
+
+			</ul>
+		</div><!-- /.navbar-collapse -->
+	</nav>
+</div><!-- /.container -->
+
+
+	<div id="principal" class="container">
+		<!-- Para que el carrusel sea full width-->
+</div> 
+<div class="container-fluid">
+<!-- Para que el carrusel sea full width-->
+
+
+
+
+
+
+
+  <div id="miCarrusel" class="carousel slide">
+    <!-- Indicators Nota: los ocultamos -->
+    <ol class="carousel-indicators">
+      <li data-target="#miCarrusel" data-slide-to="0" class="active"></li>
+      <li data-target="#miCarrusel" data-slide-to="1"></li>
+      <li data-target="#miCarrusel" data-slide-to="2"></li>
+      <li data-target="#miCarrusel" data-slide-to="3"></li>
+      <li data-target="#miCarrusel" data-slide-to="4"></li>
+      <li data-target="#miCarrusel" data-slide-to="5"></li>
+    </ol>
+
+    <!-- Contenedor slides -->
+    <div class="carousel-inner" role="listbox">
+
+    
+      <!-- item-0 -->
+      <div id="item-0" class="item active">
+
+        <div class="carousel-caption">
+          <div class="arriba-princ text-center">
+            <div class="contenedor text-center">
+              <h1 id="img-logo">
+<!--               <img class="img-titulo image-responsive inline-block" src="/graf/logo_nombre_blanco.png"-->
+               <img class="img-titulo image-responsive inline-block" src="/graf/logo-xuitec-redondeado-no-icon.png"
+                  alt="Xuitec S.L." title="Xuitec S.L">
+              </h1>
+              <h4>
+                Expertos en desarrollos, comunicaciones, control GSM, telemetría, domótica...
+              </h4>
+              <h4>
+                Integradores y desarrolladores de proyectos de ingeniería en M2M.
+              </h4>
+            </div> <!-- contenedor -->
+          </div> <!-- arriba -->
+
+          <div class="owl-slider">
+
+            <div class="owl-carousel">
+<div class-"owl_item">
+    <div style="overflow: hidden">
+        <h4 class="thumb-categoria">
+            Soluciones industriales
+        </h4>
+    </div>
+    <div class="thumbnail">
+        <a href="/producto/1" 
+            alt="Sistema tele-medida para contadores eléctricos" title="Sistema tele-medida para contadores eléctricos">
+            <div class="img-owl img-responsive center-block" 
+                style="background-image:url(/graf/ps_tm.PNG)">
+            </div>
+        </a>
+
+        <div class="caption caption-owl">
+            <div style="overflow: hidden">
+                <h5 class="thumb-titulo">
+                    Sistema tele-medida para contadores eléctricos
+                </h5>
+            </div>
+            <div style="overflow: hidden">
+                <p class="thumb-texto">Completa solución para descarga y visualización de datos de contadores eléctricos</p>
+            </div>
+        </div> <!-- caption-->
+    </div> <!--thumbnail-->
+
+
+</div> <!--owl-item--><div class-"owl_item">
+    <div style="overflow: hidden">
+        <h4 class="thumb-categoria">
+            Soluciones industriales
+        </h4>
+    </div>
+    <div class="thumbnail">
+        <a href="/producto/3" 
+            alt="T32" title="T32">
+            <div class="img-owl img-responsive center-block" 
+                style="background-image:url(/graf/ps_t32.PNG)">
+            </div>
+        </a>
+
+        <div class="caption caption-owl">
+            <div style="overflow: hidden">
+                <h5 class="thumb-titulo">
+                    T32
+                </h5>
+            </div>
+            <div style="overflow: hidden">
+                <p class="thumb-texto">Sistema de hasta 32 sensores de temperatura</p>
+            </div>
+        </div> <!-- caption-->
+    </div> <!--thumbnail-->
+
+
+</div> <!--owl-item--><div class-"owl_item">
+    <div style="overflow: hidden">
+        <h4 class="thumb-categoria">
+            Soluciones industriales
+        </h4>
+    </div>
+    <div class="thumbnail">
+        <a href="/producto/5" 
+            alt="T32LOG" title="T32LOG">
+            <div class="img-owl img-responsive center-block" 
+                style="background-image:url(/graf/ps_logenergy.PNG)">
+            </div>
+        </a>
+
+        <div class="caption caption-owl">
+            <div style="overflow: hidden">
+                <h5 class="thumb-titulo">
+                    T32LOG
+                </h5>
+            </div>
+            <div style="overflow: hidden">
+                <p class="thumb-texto">Sistema de hasta 32 sensores de temperatura conectados en bus RS485</p>
+            </div>
+        </div> <!-- caption-->
+    </div> <!--thumbnail-->
+
+
+</div> <!--owl-item--><div class-"owl_item">
+    <div style="overflow: hidden">
+        <h4 class="thumb-categoria">
+            Soluciones industriales
+        </h4>
+    </div>
+    <div class="thumbnail">
+        <a href="/producto/2" 
+            alt="T32IO" title="T32IO">
+            <div class="img-owl img-responsive center-block" 
+                style="background-image:url(/graf/pei_t32io.PNG)">
+            </div>
+        </a>
+
+        <div class="caption caption-owl">
+            <div style="overflow: hidden">
+                <h5 class="thumb-titulo">
+                    T32IO
+                </h5>
+            </div>
+            <div style="overflow: hidden">
+                <p class="thumb-texto">Alarma GSM escalable hasta 16 sensores de temperatura</p>
+            </div>
+        </div> <!-- caption-->
+    </div> <!--thumbnail-->
+
+
+</div> <!--owl-item--><div class-"owl_item">
+    <div style="overflow: hidden">
+        <h4 class="thumb-categoria">
+            Soluciones industriales
+        </h4>
+    </div>
+    <div class="thumbnail">
+        <a href="/producto/7" 
+            alt="IO64" title="IO64">
+            <div class="img-owl img-responsive center-block" 
+                style="background-image:url(/graf/ps_io64.PNG)">
+            </div>
+        </a>
+
+        <div class="caption caption-owl">
+            <div style="overflow: hidden">
+                <h5 class="thumb-titulo">
+                    IO64
+                </h5>
+            </div>
+            <div style="overflow: hidden">
+                <p class="thumb-texto"> Sistema basado en comunicaciones GSM/SMS para el envío de alarmas de hasta 32 entradas libres de tensión a través de GSM</p>
+            </div>
+        </div> <!-- caption-->
+    </div> <!--thumbnail-->
+
+
+</div> <!--owl-item--><div class-"owl_item">
+    <div style="overflow: hidden">
+        <h4 class="thumb-categoria">
+            Equipos industriales
+        </h4>
+    </div>
+    <div class="thumbnail">
+        <a href="/producto/11" 
+            alt="W44" title="W44">
+            <div class="img-owl img-responsive center-block" 
+                style="background-image:url(/graf/pei_w44_trans.png)">
+            </div>
+        </a>
+
+        <div class="caption caption-owl">
+            <div style="overflow: hidden">
+                <h5 class="thumb-titulo">
+                    W44
+                </h5>
+            </div>
+            <div style="overflow: hidden">
+                <p class="thumb-texto">Controlador IP WIFI con reloj astronómico</p>
+            </div>
+        </div> <!-- caption-->
+    </div> <!--thumbnail-->
+
+
+</div> <!--owl-item--><div class-"owl_item">
+    <div style="overflow: hidden">
+        <h4 class="thumb-categoria">
+            Equipos industriales
+        </h4>
+    </div>
+    <div class="thumbnail">
+        <a href="/producto/12" 
+            alt="LINK75" title="LINK75">
+            <div class="img-owl img-responsive center-block" 
+                style="background-image:url(/graf/pei_i65_trans.PNG)">
+            </div>
+        </a>
+
+        <div class="caption caption-owl">
+            <div style="overflow: hidden">
+                <h5 class="thumb-titulo">
+                    LINK75
+                </h5>
+            </div>
+            <div style="overflow: hidden">
+                <p class="thumb-texto"> Enlace o túnel transparente de comunicación serie a Internet mediante una conexión móvil GPRS</p>
+            </div>
+        </div> <!-- caption-->
+    </div> <!--thumbnail-->
+
+
+</div> <!--owl-item--><div class-"owl_item">
+    <div style="overflow: hidden">
+        <h4 class="thumb-categoria">
+            Equipos industriales
+        </h4>
+    </div>
+    <div class="thumbnail">
+        <a href="/producto/49" 
+            alt="MCI-3" title="MCI-3">
+            <div class="img-owl img-responsive center-block" 
+                style="background-image:url(/graf/mci3.png)">
+            </div>
+        </a>
+
+        <div class="caption caption-owl">
+            <div style="overflow: hidden">
+                <h5 class="thumb-titulo">
+                    MCI-3
+                </h5>
+            </div>
+            <div style="overflow: hidden">
+                <p class="thumb-texto">Información en tiempo real de variables eléctricas pata optimizar la eficiencia energética, el control de consumo y las horas de funcionamiento. </p>
+            </div>
+        </div> <!-- caption-->
+    </div> <!--thumbnail-->
+
+
+</div> <!--owl-item--><div class-"owl_item">
+    <div style="overflow: hidden">
+        <h4 class="thumb-categoria">
+            Equipos industriales
+        </h4>
+    </div>
+    <div class="thumbnail">
+        <a href="/producto/17" 
+            alt="T2080" title="T2080">
+            <div class="img-owl img-responsive center-block" 
+                style="background-image:url(/graf/pei_t2080.PNG)">
+            </div>
+        </a>
+
+        <div class="caption caption-owl">
+            <div style="overflow: hidden">
+                <h5 class="thumb-titulo">
+                    T2080
+                </h5>
+            </div>
+            <div style="overflow: hidden">
+                <p class="thumb-texto">Alarma GSM de temperatura de -30 a 85 ºC y control remoto de termostato</p>
+            </div>
+        </div> <!-- caption-->
+    </div> <!--thumbnail-->
+
+
+</div> <!--owl-item--><div class-"owl_item">
+    <div style="overflow: hidden">
+        <h4 class="thumb-categoria">
+            Equipos industriales
+        </h4>
+    </div>
+    <div class="thumbnail">
+        <a href="/producto/18" 
+            alt="AMS G1000" title="AMS G1000">
+            <div class="img-owl img-responsive center-block" 
+                style="background-image:url(/graf/pei_g1000.PNG)">
+            </div>
+        </a>
+
+        <div class="caption caption-owl">
+            <div style="overflow: hidden">
+                <h5 class="thumb-titulo">
+                    AMS G1000
+                </h5>
+            </div>
+            <div style="overflow: hidden">
+                <p class="thumb-texto">Identificador de llamadas con 1000 números de usuarios y con entradas de alarma</p>
+            </div>
+        </div> <!-- caption-->
+    </div> <!--thumbnail-->
+
+
+</div> <!--owl-item--><div class-"owl_item">
+    <div style="overflow: hidden">
+        <h4 class="thumb-categoria">
+            Domótica
+        </h4>
+    </div>
+    <div class="thumbnail">
+        <a href="/producto/22" 
+            alt="GSM Básico" title="GSM Básico">
+            <div class="img-owl img-responsive center-block" 
+                style="background-image:url(/graf/ped_basic.PNG)">
+            </div>
+        </a>
+
+        <div class="caption caption-owl">
+            <div style="overflow: hidden">
+                <h5 class="thumb-titulo">
+                    GSM Básico
+                </h5>
+            </div>
+            <div style="overflow: hidden">
+                <p class="thumb-texto">Equipo de control de una calefacción simple a través de GSM</p>
+            </div>
+        </div> <!-- caption-->
+    </div> <!--thumbnail-->
+
+
+</div> <!--owl-item--><div class-"owl_item">
+    <div style="overflow: hidden">
+        <h4 class="thumb-categoria">
+            Domótica
+        </h4>
+    </div>
+    <div class="thumbnail">
+        <a href="/producto/23" 
+            alt="AMS 51" title="AMS 51">
+            <div class="img-owl img-responsive center-block" 
+                style="background-image:url(/graf/ped_ams51.PNG)">
+            </div>
+        </a>
+
+        <div class="caption caption-owl">
+            <div style="overflow: hidden">
+                <h5 class="thumb-titulo">
+                    AMS 51
+                </h5>
+            </div>
+            <div style="overflow: hidden">
+                <p class="thumb-texto">Dispositivo de control Domótico y calefacción mas Alarmas por GSM</p>
+            </div>
+        </div> <!-- caption-->
+    </div> <!--thumbnail-->
+
+
+</div> <!--owl-item--><div class-"owl_item">
+    <div style="overflow: hidden">
+        <h4 class="thumb-categoria">
+            Domótica
+        </h4>
+    </div>
+    <div class="thumbnail">
+        <a href="/producto/24" 
+            alt="AMS 51G" title="AMS 51G">
+            <div class="img-owl img-responsive center-block" 
+                style="background-image:url(/graf/ped_ams51g.PNG)">
+            </div>
+        </a>
+
+        <div class="caption caption-owl">
+            <div style="overflow: hidden">
+                <h5 class="thumb-titulo">
+                    AMS 51G
+                </h5>
+            </div>
+            <div style="overflow: hidden">
+                <p class="thumb-texto">AMS51 con apertura de puertas de garaje sin coste (hasta 50 usuarios)</p>
+            </div>
+        </div> <!-- caption-->
+    </div> <!--thumbnail-->
+
+
+</div> <!--owl-item--><div class-"owl_item">
+    <div style="overflow: hidden">
+        <h4 class="thumb-categoria">
+            Domótica
+        </h4>
+    </div>
+    <div class="thumbnail">
+        <a href="/producto/25" 
+            alt="KIT SEGURIDAD" title="KIT SEGURIDAD">
+            <div class="img-owl img-responsive center-block" 
+                style="background-image:url(/graf/ped_kit.PNG)">
+            </div>
+        </a>
+
+        <div class="caption caption-owl">
+            <div style="overflow: hidden">
+                <h5 class="thumb-titulo">
+                    KIT SEGURIDAD
+                </h5>
+            </div>
+            <div style="overflow: hidden">
+                <p class="thumb-texto">Kit de alarma de seguridad a través de GSM con control Domótico</p>
+            </div>
+        </div> <!-- caption-->
+    </div> <!--thumbnail-->
+
+
+</div> <!--owl-item--><div class-"owl_item">
+    <div style="overflow: hidden">
+        <h4 class="thumb-categoria">
+            Domótica
+        </h4>
+    </div>
+    <div class="thumbnail">
+        <a href="/producto/26" 
+            alt="Chuco GSM" title="Chuco GSM">
+            <div class="img-owl img-responsive center-block" 
+                style="background-image:url(/graf/ped_chuco.PNG)">
+            </div>
+        </a>
+
+        <div class="caption caption-owl">
+            <div style="overflow: hidden">
+                <h5 class="thumb-titulo">
+                    Chuco GSM
+                </h5>
+            </div>
+            <div style="overflow: hidden">
+                <p class="thumb-texto">Equipo en formato enchufe eléctrico, que permite controlar cargas de forma remota o localmente mediante GSM</p>
+            </div>
+        </div> <!-- caption-->
+    </div> <!--thumbnail-->
+
+
+</div> <!--owl-item--><div class-"owl_item">
+    <div style="overflow: hidden">
+        <h4 class="thumb-categoria">
+            Solución
+        </h4>
+    </div>
+    <div class="thumbnail">
+        <a href="/soluciones/vpn" 
+            alt="VPN para M2M" title="VPN para M2M">
+            <div class="img-owl img-responsive center-block" 
+                style="background-image:url(/graf/vpn.jpg)">
+            </div>
+        </a>
+
+        <div class="caption caption-owl">
+            <div style="overflow: hidden">
+                <h5 class="thumb-titulo">
+                    VPN para M2M
+                </h5>
+            </div>
+            <div style="overflow: hidden">
+                <p class="thumb-texto">Conectiviad profesional GPRS/3G para equipos remotos M2M</p>
+            </div>
+        </div> <!-- caption-->
+    </div> <!--thumbnail-->
+
+
+</div> <!--owl-item--></div>
+          
+          </div>
+
+
+          <div class="abajo">
+            <a href="/categoria/"  
+            class="btn btn-default btn-autosize">
+            Gama de productos
+            </a>
+          </div> <!-- fin abajo -->
+
+        </div> <!-- fin carousel-caption -->
+      </div> <!-- Fin item-0 -->
+
+
+
+
+      <!-- item-6 -->
+      <div id="item-6" class="item">
+        <div class="carousel-caption">
+
+          <div class="bajofoto text-center">
+            <div class="text-center">
+              <div class="titulo darkerblack text-center padding-5">
+                  <h2 class="margin-bottom-0">
+                   Sistema de telemedida
+                  </br>
+                    para contadores eléctricos
+                  </h2>
+              </div>
+            <div class="margin-bottom-5"></div>
+
+              <div class="subtitulos black text-center animado" data-animation="animated zoomIn">
+                <div>
+                  <p class="padding-5 margin-bottom-0"> 
+                    Terminal MODEM que permite gestionar y comunicar con contadores eléctricos mediante comunicaciones móviles GSM/GPRS a través de Internet (TCP/IP)
+                  </p>
+                  <p class="padding-5 margin-bottom-0"> 
+                    Con software web de gestión para su control, configuración y seguimiento remotos
+                  </p>
+                  <p class="padding-5 margin-bottom-0"> 
+                    Compatible con otros programas del mercado en el área de las distribuidoras y comercializadoras eléctricas.
+                  </p>
+                </div>
+              </div>
+
+            </div>          
+
+          </div> 
+          <!-- fin bajofoto -->
+
+          <div class="mi-thumbnail center-block">
+            <img class="img-responsive img-thumbnail" src="/graf/ps_tm.png">
+          </div> 
+          <!--fin thumbnail-->
+          
+          <div class="abajo text-center">
+            <a href="/Producto/1" 
+            class="btn btn-default btn-autosize">
+              Más información
+            </a>
+          </div> 
+        </div>
+      </div><!-- Fin item-6 -->
+
+      
+      <!-- item-1 -->
+      <div id="item-1" class="item">
+
+        <div class="carousel-caption">
+
+          <div class="arriba text-center">
+            <div class="text-center">
+              <h1 class="darkergray padding-10 margin-bottom-10">
+                Soluciones industriales o profesionales
+              </h1>
+            </div>
+            <div class="subtitulos text-center animado" data-animation="animated zoomIn">
+              <div>
+                <h4
+                  class="darkgray padding-5 margin-bottom-5">
+                  Telemetría GPRS</h4>
+              </div>
+              <div>
+                <h4
+                class="darkgray padding-5 margin-bottom-5">
+                  Alarmas de temperatura/humedad escalables GSM</h4>
+              </div>
+              <div>
+                <h4
+                  class="darkgray padding-5 margin-bottom-5">
+                  Control GSM/GPRS</h4>
+              </div>
+              <div>
+                <h4
+                  class="darkgray padding-5 margin-bottom-5">
+                  Medición y tele-medición</h4>
+              </div>
+            </div>
+          </div> 
+          <!-- fin arriba -->
+
+          <div class="abajo text-center">
+            <a href="/categoria/1" 
+            class="btn btn-default btn-autosize">
+              Más información
+            </a>
+          </div> 
+        </div>
+      </div> <!-- Fin item-1 -->
+      
+      <!-- item-2 -->
+      <div id="item-2" class="item">
+        <div class="carousel-caption">
+          
+          <div class="arriba text-center">
+            <div class="text-center">
+              <h1 class="darkerolivegreen padding-10 margin-bottom-10">
+              Equipos industriales o profesionales
+              </h1>
+            </div>
+            <div class="subtitulos text-center animado" data-animation="animated zoomIn">
+              <div>
+                <h4
+                  class="olivedrab padding-5 margin-bottom-5">
+                  Modem GSM/GPRS en Carril DIN
+                </h4>
+              </div>
+              <div>
+                <h4
+                  class="olivedrab padding-5 margin-bottom-5">
+                  Modem GSM/GPRS en Java con RS232/RS485
+                </h4>
+              </div>
+              <div>
+                <h4
+                  class="olivedrab padding-5 margin-bottom-5">
+                  Control de acceso por llamada perdida
+                </h4>
+              </div>
+              <div>
+                <h4
+                  class="olivedrab padding-5 margin-bottom-5">
+                  Alarma simple de temperatura
+                </h4>
+              </div>
+            </div>
+          </div> 
+          <!-- fin arriba -->
+
+          <div class="abajo text-center">
+            <a href="/categoria/2" 
+            class="btn btn-default btn-autosize">
+              Más información
+            </a>
+          </div> 
+        </div>
+      </div><!-- Fin item-2 -->
+      
+      <!-- item-3 -->
+      <div id="item-3" class="item">
+        <div class="carousel-caption">
+ 
+          <div class="arriba text-center">
+            <div class="text-center">
+              <h1 class="darkerskyblue padding-10 margin-bottom-10">
+              Equipos domóticos o de consumo
+              </h1>
+            </div>
+            <div class="subtitulos text-center animado" data-animation="animated zoomIn">
+              <div>
+                <h4
+                  class="skyblue padding-5 margin-bottom-5">
+                  Control remoto de calefacción por GSM
+                </h4>
+              </div>
+              <div>
+                <h4
+                  class="skyblue padding-5 margin-bottom-5">
+                  Enchufe eléctrico por GSM
+                </h4>
+              </div>
+              <div>
+                <h4
+                  class="skyblue padding-5 margin-bottom-5">
+                  Control GSM simple y domótico por X10
+                </h4>
+              </div>
+              <div>
+                <h4
+                  class="skyblue padding-5 margin-bottom-5">
+                  Alarmas simples y de seguridad por GSM
+                </h4>
+              </div>
+              <div>
+                <h4
+                  class="skyblue padding-5 margin-bottom-5">
+                  Accesorios
+                </h4>
+              </div>
+            </div>
+          </div> 
+          <!-- fin arriba -->
+
+          <div class="abajo text-center">
+            <a href="/categoria/4" 
+            class="btn btn-default btn-autosize">
+              Más información
+            </a>
+          </div> 
+        </div>
+      </div><!-- Fin item-3 -->
+    
+      <!-- item-4 -->
+      <div id="item-4" class="item">
+        <div class="carousel-caption">
+
+          <div class="bajofoto text-center">
+
+            <div class="titulo black text-center padding-5-block">
+                <h2 class="margin-bottom-0">
+                  MCI-3
+                </br>
+                  Analizador de redes eléctricas
+                </h2>
+            </div>
+            <div class="margin-bottom-5"></div>
+
+            <div class="subtitulos black text-center animado" data-animation="animated zoomIn">
+              <div>
+                  <p class="padding-5 margin-bottom-0"> 
+                  Información en tiempo real de los datos de la red eléctrica para optimizar la eficiencia energética, el control de consumo y las horas de funcionamiento.
+                </p>
+                <p class="padding-5 margin-bottom-0"> 
+                  Detecta y previene el exceso de consumo.
+                </p>
+                <p class="padding-5 margin-bottom-0"> 
+                  Ideal para analizar el estado y prevenir los posibles problemas de la red eléctrica.
+                </p>
+              </div>
+            </div>
+
+          </div> 
+          <!-- fin arriba -->
+
+          <div class="mi-thumbnail center-block">
+            <img class="img-responsive img-thumbnail" src="/graf/mci3transparente.png">
+          </div> <!--thumbnail-->
+          
+          <div class="abajo text-center">
+            <a href="/Producto/49" 
+            class="btn btn-default btn-autosize">
+              Más información
+            </a>
+          </div> 
+        </div>
+      </div><!-- Fin item-4 -->
+    
+      <!-- item-5 -->
+      <div id="item-5" class="item">
+        <div class="carousel-caption">
+ 
+          <div class="arriba text-center">
+            <div class="text-center">
+              <h1 class="darkerskyblue padding-10 margin-bottom-10">
+              Proyectos y desarrollo de software
+              </h1>
+            </div>
+            <div class="subtitulos text-center animado" data-animation="animated zoomIn">
+              <div>
+                <h4
+                  class="skyblue padding-5 margin-bottom-10">
+                  Consultoría y desarrollo de software a medida
+                </h4>
+              </div>
+              <div>
+                <h4
+                  class="skyblue padding-5 margin-bottom-10">
+                  Desarrollo en entorno Windows y Linux
+                </h4>
+              </div>
+              <div>
+                <h4
+                  class="skyblue padding-5 margin-bottom-10">
+                  Programación en .NET, Java, SSL, C++, PHP, ASP, XML, SCRIPT...
+                </h4>
+              </div>
+              <div>
+                <h4
+                  class="skyblue padding-5 margin-bottom-10">
+                  Integración: servicios WEB-XML, ERP, SQL, mySQL
+                </h4>
+              </div>
+              <div>
+                <h4
+                  class="skyblue padding-5 margin-bottom-10">
+                  Sistemas embebidos
+                </h4>
+              </div>
+            </div>
+          </div> 
+          <!-- fin arriba -->
+
+          <div class="abajo text-center">
+            <a href="/Soluciones/#Proyectosydesarrollodesoftware" 
+            class="btn btn-default btn-autosize">
+              Más información
+            </a>
+          </div> 
+        </div>
+      </div><!-- Fin item-5 -->
+    
+    </div><!-- Fin carousel-inner -->
+
+    <!-- Controles -->
+    <a class="left carousel-control" href="#miCarrusel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#miCarrusel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div><!-- Fin miCarousel -->
+
+
+
+<!-- Para que el carrusel sea full width-->
+</div> 
+<div class="container">
+<!-- Para que el carrusel sea full width-->
+  
+
+
+
+
+	</div>
+	<!--- Pie de página -->
+<div class="container-fluid pie">
+	<div class="container">
+		<div class="row">
+			<section id="logo" class="col-sm-3 col-md-3 text-left hidden-xs hidden-sm">
+				<div id="bottomLogo">
+					<a href="/inicio">
+<!--						<img src="/graf/logonew_inv.png" width="200px"-->
+						<img src="/graf/logo-xuitec-redondeado.png" width="200px"
+							alt="Xuitec - Logo de la empresa" title="Xuitec - Logo de la empresa">
+
+					</a>
+				</div>
+			</section>
+			
+			<section id="contacto" class="col-sm-4 col-md-3 text-left">
+				<div class="hidden-md hidden-lg">
+					<div id="bottomLogo">
+						<a href="/inicio">
+<!--							<img src="/graf/logonew_inv.png" width="200px"-->
+							<img src="/graf/logo-xuitec-redondeado.png" width="200px"
+								alt="Xuitec - Logo de la empresa" title="Xuitec - Logo de la empresa">
+						</a>
+					</div>
+				</div>
+				<div>
+					<span><i class="fa fa-map-marker"></i> Oficina central</span><br>
+					<address>
+						C/ Antonio Suárez, 10<br>
+						Edificio C, Oficina 306<br>
+						28802 Alcalá de Henares
+					</address>
+				</div>
+				<div>
+					<span><i class="fa fa-phone"></i> Teléfonos</span><br>
+					(Comercial) 690 825 456<br>
+					(Oficina) (+34) 91 134 15 90<br>
+				</div>
+				<div>
+					<span><i class="fa fa-envelope"></i> E-Mail</span><br>
+					info@xuitec.com</a>
+				</div>
+				<hr class="visible-xs">
+			</section>
+			
+			<section id="informacion" class="col-sm-8  col-md-6 text-left">
+				<span>Sobre nosotros</span>
+				<p>Realizamos proyectos de software a medida y dispositivos de comunicaciones remotas y de control, en entornos de redes, con el fin de aportar un alto grado de especialización en estos campos.</p>
+				<p>Contamos con un grupo de técnicos suficientemente maduro para acometer proyectos reales y exigentes. Ofreciendo a nuestros clientes un alto rendimiento en los trabajos que nos soliciten.</p>
+				<p>Nuestros productos y proyectos tienen un componente innovador y tecnológico, desde su idea hasta su producción.</p>
+			</section>
+		</div> <!-- row -->
+		
+		<div class="copyr text-center">
+			<hr>
+			&copy; Xuitec, S.L. 2016
+			<br/>
+			<a href="/condiciones"><span>Condiciones de uso</span></a>
+			 &nbsp;&bull;&nbsp;
+			<a href="/Inicio/sitemap"><span>Mapa del sitio</span></a>
+			<hr>
+		</div> <!-- copyr -->
+	
+	</div> <!-- container -->
+
+
+</div> <!-- container-fluid -->
+
+
+	<!--SCRIPTS-->
+
+	<!-- jquery -->
+	<script src="/plugins/jquery-2.2.4/jquery-2.2.4.min.js"></script>
+	<!-- Bootstrap -->
+	<script src="/plugins/bootstrap/js/bootstrap.min.js"></script>
+	<!-- OwlCarousel -->
+	<script src="/plugins/owlcarousel/owl.carousel.min.js"></script>
+
+	<!--propios-->
+	<script src="/js/scripts.js"></script>
+	<script src="/js/carrusel-anim.js"></script>
+	<script src="/js/carrusel-owl.js"></script>
+
+
+</body>
+
+
+</html>
+
