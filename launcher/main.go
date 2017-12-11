@@ -2,10 +2,13 @@ package main
 
 import (
 	"flag"
+	"fmt"
 	"log"
 	"os"
 	"os/exec"
 	"time"
+
+	"github.com/jcastillo1980/Curso/launcher/ElementExe"
 )
 
 // NameExe ??
@@ -35,6 +38,7 @@ var Arg3 = ""
 func main() {
 	var argumentos []string
 	var temporizador *time.Timer
+	var timeout bool
 
 	log.Printf("Inicio Programa Launcher [pid:%d]\r\n", os.Getpid())
 
@@ -71,15 +75,29 @@ func main() {
 		cmd.Path = NamePath
 	}
 
+	timeout = false
 	if TM > 0 {
 		temporizador = time.AfterFunc(time.Second*time.Duration(TM), func() {
 			cmd.Process.Kill()
+			timeout = true
 		})
 	}
-	err := cmd.Run()
-	if TM > 0 {
-		temporizador.Stop()
+	err := cmd.Start()
+
+	canal := make(chan int)
+	go func(c chan int) {
+		err = cmd.Wait()
+		c <- 1
+	}(canal)
+
+	<-canal
+
+	temporizador.Stop()
+
+	if TM > 0 && timeout == true {
 		log.Printf("TimeOut!! [pid:%d]\r\n", cmd.Process.Pid)
 	}
+
 	log.Printf("Final Proceso [pid:%d]: %v\r\n", cmd.Process.Pid, err)
+	fmt.Println(ElementExe.ElementExe{})
 }
