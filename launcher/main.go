@@ -5,8 +5,6 @@ import (
 	"fmt"
 	"log"
 	"os"
-	"os/exec"
-	"time"
 
 	"github.com/jcastillo1980/Curso/launcher/ElementExe"
 )
@@ -36,9 +34,6 @@ var Arg2 = ""
 var Arg3 = ""
 
 func main() {
-	var argumentos []string
-	var temporizador *time.Timer
-	var timeout bool
 
 	log.Printf("Inicio Programa Launcher [pid:%d]\r\n", os.Getpid())
 
@@ -50,54 +45,27 @@ func main() {
 	flag.IntVar(&TR, "tr", 0, "Tiempo (segundos) restart aplicación cuando se cierra sola.")
 	flag.IntVar(&TI, "ti", 0, "Tiempo (segundos) retardo inicio.")
 	flag.IntVar(&TM, "tm", 0, "Tiempo (segundos) máximo de ejecución para cerrado automatico. ")
+
 	flag.Parse()
 
-	if len(NameExe) == 0 {
-		log.Println("Sin Programa a ejecutar !!")
-		os.Exit(0)
+	EE := ElementExe.ElementExe{
+		IDG:      1,
+		NameExe:  NameExe,
+		NamePath: NamePath,
+		TR:       TR,
+		TI:       TI,
+		TM:       TM,
+		Arg1:     Arg1,
+		Arg2:     Arg2,
+		Arg3:     Arg3,
 	}
 
-	if len(Arg1) != 0 {
-		argumentos = append(argumentos, Arg1)
-	}
-	if len(Arg2) != 0 {
-		argumentos = append(argumentos, Arg2)
-	}
-	if len(Arg3) != 0 {
-		argumentos = append(argumentos, Arg3)
-	}
+	EE.Ejecuta()
 
-	cmd := exec.Command(NameExe, argumentos...)
-	cmd.Stderr = os.Stderr
-	cmd.Stdin = os.Stdin
-	cmd.Stdout = os.Stdout
-	if len(NamePath) != 0 {
-		cmd.Path = NamePath
-	}
-
-	timeout = false
-	if TM > 0 {
-		temporizador = time.AfterFunc(time.Second*time.Duration(TM), func() {
-			cmd.Process.Kill()
-			timeout = true
-		})
-	}
-	err := cmd.Start()
-
-	canal := make(chan int)
-	go func(c chan int) {
-		err = cmd.Wait()
-		c <- 1
-	}(canal)
-
-	<-canal
-
-	temporizador.Stop()
-
-	if TM > 0 && timeout == true {
-		log.Printf("TimeOut!! [pid:%d]\r\n", cmd.Process.Pid)
-	}
-
-	log.Printf("Final Proceso [pid:%d]: %v\r\n", cmd.Process.Pid, err)
-	fmt.Println(ElementExe.ElementExe{})
+	retorno := ""
+	fmt.Scanln(&retorno)
+	fmt.Println("OK STOP", retorno)
+	EE.Stop()
+	fmt.Scanln(&retorno)
+	fmt.Println("FIN TOTAL", retorno)
 }

@@ -1,0 +1,15 @@
+- creo la tarea
+- la inicio como un nuevo hilo
+
+hilo: 
+    - si hay algo no correcto sale de tarea
+
+    - espera ti
+    -- salida forzada -> sale de la tarea
+
+    - lanza comando
+    -- timeout -> kill comando
+    -- salida forzada -> kill comando y salir tarea
+
+    - espera tr
+    -- salida forzada -> salir tarea
