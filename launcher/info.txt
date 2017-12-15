@@ -13,3 +13,50 @@ hilo:
 
     - espera tr
     -- salida forzada -> salir tarea
+
+
+
+------------------------------------------------
+
+10:00 = 600
+
+12:00 = 720
+
+720 - 600 = 120
+
+
+hmdis - HMnow
+600 - 720 = - 120
+
+
+22:00 = 1320
+
+hilo hm:
+    - si hay algo no correcto sale de tarea
+
+    - HMdisp - HMnow
+    -- salir forzada -> sale de la tarea
+
+    - lanza comando
+    -- timeout -> kill comando
+    -- salida forzada -> kill comando y salir tarea
+
+    - espera 1 minuto
+    -- salida forzada -> salida tarea
+
+----------------------
+
+tsAntes
+tsDespues
+
+nh*60 - (tsDespues- tsAntes)
+if(>0)
+    espera ese tiempo
+
+
+
+
+
+
+
+

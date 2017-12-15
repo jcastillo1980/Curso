@@ -33,6 +33,9 @@ var Arg2 = ""
 // Arg3 ??
 var Arg3 = ""
 
+// Args
+var Args = ""
+
 func main() {
 
 	log.Printf("Inicio Programa Launcher [pid:%d]\r\n", os.Getpid())
@@ -42,14 +45,27 @@ func main() {
 	flag.StringVar(&Arg1, "arg1", "", "Argumento 1.")
 	flag.StringVar(&Arg2, "arg2", "", "Argumento 2.")
 	flag.StringVar(&Arg3, "arg3", "", "Argumento 3.")
+	flag.StringVar(&Args, "args", "", "Argumentos para ejecución planificada")
 	flag.IntVar(&TR, "tr", 0, "Tiempo (segundos) restart aplicación cuando se cierra sola.")
 	flag.IntVar(&TI, "ti", 0, "Tiempo (segundos) retardo inicio.")
 	flag.IntVar(&TM, "tm", 0, "Tiempo (segundos) máximo de ejecución para cerrado automatico. ")
 
+	// vvv := 0
+	// flag.IntVar(&vvv, "vvv", 0, "que cosasssss")
+
 	flag.Parse()
 
+	/* if vvv == 1 {
+		tools.ProbarConexion()
+		fmt.Println("holaaa", time.Now().Unix())
+		return
+	} */
+
 	EE := ElementExe.ElementExe{
+		Modo:     ElementExe.ModoHora,
 		IDG:      1,
+		NH:       1,
+		HM:       22*60 + 23,
 		NameExe:  NameExe,
 		NamePath: NamePath,
 		TR:       TR,
@@ -58,6 +74,8 @@ func main() {
 		Arg1:     Arg1,
 		Arg2:     Arg2,
 		Arg3:     Arg3,
+		Args:     Args,
+		NHminut:  true,
 	}
 
 	EE.Ejecuta()
