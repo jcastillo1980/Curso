@@ -69,9 +69,9 @@ func GetListaGroups(isFix bool) ([]models.DevGroup, error) {
 
 	strquery := ""
 	if isFix == true {
-		strquery = "select id,modomodem,medidas_inst,x_enable,x_task_ts,x_exe_pid,x_exe_ts,x_task_arg1,x_task_arg2,x_hm,x_nh,x_ti,x_tr,x_tm  from dev_group where medidas_inst='1' and x_enable='1' "
+		strquery = "select id,modomodem,medidas_inst,x_enable,x_task_ts,x_exe_pid,x_exe_ts,x_task_arg1,x_task_arg2,x_hm,x_nh,x_ti,x_tr,x_tm,x_ts_modif  from dev_group where medidas_inst='1' and x_enable='1' "
 	} else {
-		strquery = "select id,modomodem,medidas_inst,x_enable,x_task_ts,x_exe_pid,x_exe_ts,x_task_arg1,x_task_arg2,x_hm,x_nh,x_ti,x_tr,x_tm  from dev_group where medidas_inst='0' and x_enable='1' "
+		strquery = "select id,modomodem,medidas_inst,x_enable,x_task_ts,x_exe_pid,x_exe_ts,x_task_arg1,x_task_arg2,x_hm,x_nh,x_ti,x_tr,x_tm,x_ts_modif  from dev_group where medidas_inst='0' and x_enable='1' "
 	}
 
 	db, err := sql.Open("mysql", genCadenaConexion())
@@ -119,6 +119,7 @@ func GetListaGroups(isFix bool) ([]models.DevGroup, error) {
 			&elemento.X_ti,
 			&elemento.X_tr,
 			&elemento.X_tm,
+			&elemento.X_ts_modif,
 		)
 
 		retornolista = append(retornolista, elemento)

@@ -6,6 +6,8 @@ import (
 	"os/exec"
 	"time"
 
+	"github.com/jcastillo1980/Curso/launcher/models"
+
 	"github.com/jcastillo1980/Curso/launcher/tools"
 )
 
@@ -18,24 +20,35 @@ const (
 
 //ElementExe ??????
 type ElementExe struct {
-	Modo     int
-	IDG      int
-	HM       int
-	NH       int
-	NameExe  string
-	NamePath string
-	TR       int
-	TI       int
-	TM       int
-	Arg1     string
-	Arg2     string
-	Arg3     string
+	X_ts_modfi int64
+	Modo       int
+	IDG        int
+	HM         int
+	NH         int
+	NameExe    string
+	NamePath   string
+	TR         int
+	TI         int
+	TM         int
+	Arg1       string
+	Arg2       string
+	Arg3       string
 	// Args son los argumentos para tareas planificdas
 	Args string
 	// NHminut hace que cada NH no sean horas si no minutos
 	NHminut  bool
 	Finaliza chan int
 	run      bool
+}
+
+// ComparaElementExe compara solo los x_ts_modfi
+func (e *ElementExe) ComparaElementExe(d models.DevGroup) bool {
+	return false
+}
+
+// LoadGroup Carga los parámetro del grupo a la task
+func (e *ElementExe) LoadGroup(d models.DevGroup) {
+	return
 }
 
 // Stop ???
@@ -46,7 +59,7 @@ func (e *ElementExe) Stop() {
 	e.run = false
 }
 
-//Ejecuta ejecuta la tarea en un nuevo hilo
+// Ejecuta ejecuta la tarea en un nuevo hilo
 func (e *ElementExe) Ejecuta() {
 	if e.Modo == ModoFix {
 		go e.ejecutaBloqueoFix()
