@@ -143,7 +143,7 @@ func SetDbTaskRun(id int) {
 	}
 
 	ts := time.Now().Unix()
-	_, err = db.Exec("update dv_group set x_task_ts=? where id=? ", ts, id)
+	_, err = db.Exec("update dev_group set x_task_ts=? where id=? ", ts, id)
 	if err != nil {
 		log.Println("Error Ping SetDbTaskRun:", err)
 	}
@@ -163,7 +163,7 @@ func SetDbTaskStop(id int) {
 		return
 	}
 
-	_, err = db.Exec("update dv_group set x_task_ts=0 where id=? ", id)
+	_, err = db.Exec("update dev_group set x_task_ts=0 where id=? ", id)
 	if err != nil {
 		log.Println("Error Ping SetDbTaskStop:", err)
 	}

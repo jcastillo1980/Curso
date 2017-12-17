@@ -65,9 +65,13 @@ func (e *ElementExe) ejecutaBloqueoNH() {
 
 	e.Finaliza = make(chan int, 2)
 	e.run = true
+
+	tools.SetDbTaskRun(e.IDG)
+
 	defer func() {
 		e.run = false
 		close(e.Finaliza)
+		tools.SetDbTaskStop(e.IDG)
 		log.Printf("[%d] Tarea Finalizada\r\n", e.IDG)
 	}()
 
@@ -130,12 +134,13 @@ func (e *ElementExe) ejecutaBloqueoNH() {
 		}
 
 		err := cmd.Start()
-
+		tools.SetDbExeRun(e.IDG, cmd.Process.Pid)
 		log.Printf("[%d] Inicio de Ejecutable [pid:%d]\r\n", e.IDG, cmd.Process.Pid)
 
 		canal := make(chan int)
 		go func(c chan int) {
 			err = cmd.Wait()
+			tools.SetDbExeStop(e.IDG)
 			c <- 1
 		}(canal)
 
@@ -178,9 +183,13 @@ func (e *ElementExe) ejecutaBloqueoHM() {
 
 	e.Finaliza = make(chan int, 2)
 	e.run = true
+
+	tools.SetDbTaskRun(e.IDG)
+
 	defer func() {
 		e.run = false
 		close(e.Finaliza)
+		tools.SetDbTaskStop(e.IDG)
 		log.Printf("[%d] Tarea Finalizada\r\n", e.IDG)
 	}()
 
@@ -236,12 +245,13 @@ func (e *ElementExe) ejecutaBloqueoHM() {
 		}
 
 		err := cmd.Start()
-
+		tools.SetDbExeRun(e.IDG, cmd.Process.Pid)
 		log.Printf("[%d] Inicio de Ejecutable [pid:%d]\r\n", e.IDG, cmd.Process.Pid)
 
 		canal := make(chan int)
 		go func(c chan int) {
 			err = cmd.Wait()
+			tools.SetDbExeStop(e.IDG)
 			c <- 1
 		}(canal)
 
@@ -360,7 +370,7 @@ func (e *ElementExe) ejecutaBloqueoFix() {
 		}
 
 		err := cmd.Start()
-		tools.SetDbExeRun(e.IDG,cmd.Process.Pid)
+		tools.SetDbExeRun(e.IDG, cmd.Process.Pid)
 		log.Printf("[%d] Inicio de Ejecutable [pid:%d]\r\n", e.IDG, cmd.Process.Pid)
 
 		canal := make(chan int)
@@ -394,9 +404,8 @@ func (e *ElementExe) ejecutaBloqueoFix() {
 			log.Printf("[%d] Final Proceso y Final TAREA [pid:%d]: %v\r\n", e.IDG, cmd.Process.Pid, err)
 			return
 		}
-		
+
 		log.Printf("[%d] Final Proceso [pid:%d]: %v\r\n", e.IDG, cmd.Process.Pid, err)
-		
 
 		if e.TR > 0 {
 			log.Printf("[%d] Esperando ReInicio .. (%d s)\r\n", e.IDG, e.TR)

@@ -59,6 +59,10 @@ func main() {
 	if vvv == 1 {
 		//tools.ProbarConexion()
 		//fmt.Println("holaaa", time.Now().Unix())
+		//tools.SetDbExeRun(13, 5555)
+		//tools.SetDbExeStop(13)
+		//tools.SetDbTaskRun(13)
+		tools.SetDbTaskStop(13)
 		fmt.Println(tools.GetListaGroups(true))
 		return
 	}

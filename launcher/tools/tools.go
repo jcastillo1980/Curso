@@ -39,7 +39,7 @@ func (a AppendFile) Add(text string) error {
 // String ??
 func (a AppendFile) String() string {
 	return fmt.Sprintf("AppendFile{ NameFile: \"%s\"}", a.NameFile)
-}
+} 
 
 // FragmentaAgumentos Crea un slice de string de una cadena con argumentos
 func FragmentaAgumentos(s string) []string {

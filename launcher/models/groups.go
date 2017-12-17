@@ -10,7 +10,7 @@ type DevGroup struct {
 	Modomodem    int
 	Medidas_inst int
 	X_enable     int
-	X_task_ts    int64
+	X_task_ts    int64 
 	X_exe_pid    int
 	X_exe_ts     int64
 	X_task_arg1  string
