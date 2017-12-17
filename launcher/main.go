@@ -7,6 +7,7 @@ import (
 	"os"
 
 	"github.com/jcastillo1980/Curso/launcher/ElementExe"
+	"github.com/jcastillo1980/Curso/launcher/tools"
 )
 
 // NameExe ??
@@ -33,7 +34,7 @@ var Arg2 = ""
 // Arg3 ??
 var Arg3 = ""
 
-// Args
+// Args ??
 var Args = ""
 
 func main() {
@@ -50,16 +51,17 @@ func main() {
 	flag.IntVar(&TI, "ti", 0, "Tiempo (segundos) retardo inicio.")
 	flag.IntVar(&TM, "tm", 0, "Tiempo (segundos) máximo de ejecución para cerrado automatico. ")
 
-	// vvv := 0
-	// flag.IntVar(&vvv, "vvv", 0, "que cosasssss")
+	vvv := 0
+	flag.IntVar(&vvv, "vvv", 0, "que cosasssss")
 
 	flag.Parse()
 
-	/* if vvv == 1 {
-		tools.ProbarConexion()
-		fmt.Println("holaaa", time.Now().Unix())
+	if vvv == 1 {
+		//tools.ProbarConexion()
+		//fmt.Println("holaaa", time.Now().Unix())
+		fmt.Println(tools.GetListaGroups(true))
 		return
-	} */
+	}
 
 	EE := ElementExe.ElementExe{
 		Modo:     ElementExe.ModoHora,
