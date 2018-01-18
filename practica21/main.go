@@ -19,6 +19,9 @@ func main() {
 				"esto":   "mall mallll",
 			},
 		}
+
+		bb, err := bson.Marshal(gg)
+		pretty.Println("bb--->", bb, err)
 		pretty.Println(gg)
 		gg["estado"] = "caca caca cac "
 		pretty.Println(gg)
