@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<parametros>
+    <var name="variable1">Contenido de variable 1   </var>
+    <var name="variable2">    Contenido de variable 2.    </var>
+    <var name="variable3">Contenido de variable 3</var>
+    <otros>
+        <var name="x1">Contenido de x 1</var>
+        <var name="x2">Contenido de x 2</var>
+        <var name="x3">Contenido de x 3</var>
+    </otros>
+</parametros>
