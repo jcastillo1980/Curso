@@ -6,6 +6,8 @@ import (
 	"io/ioutil"
 )
 
+var mio = "Esto es mio"
+
 // Parametros ???
 type Parametros struct {
 	XMLName    xml.Name `xml:"parametros"`
@@ -40,5 +42,7 @@ func main() {
 		fmt.Printf("---> %d -> Name:[%s] Contenido:[%s]\r\n", i, v.Name, v.Contenido)
 	}
 	//fmt.Println(string(bf))
+
+	fmt.Println(mio)
 
 }

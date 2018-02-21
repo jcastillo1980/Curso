@@ -1,0 +1,16 @@
+{
+    "parametros" : [
+        {
+            "name":"v1",
+            "value":"contenido v1"
+        },
+        {
+            "name":"v2",
+            "value":"contenido v2"
+        },
+        {
+            "name":"v3",
+            "value":"contenido v3"
+        }
+    ]
+}
