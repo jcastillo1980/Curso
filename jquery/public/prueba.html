@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Prueba</title>
+    <script src="./js/jquery-3.3.1.min.js"></script>
+    <style>
+        p{
+            color: rgb(127, 204, 103);
+        }
+        input{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="prueba">Esto es una prueba</div>
+    <input id="entrada" type="text" placeholder="Esto es algo" size=100/>
+    <button id="btn1">Pulsa aqui</button>
+    <script>
+        $(document).ready(function()
+        {
+            $('.prueba').css('color','rgb(127, 204, 103)');
+            $('#btn1').click(function(){
+                $('#entrada').val('Datos: ' + new Date());
+            });
+            $('#entrada').keydown(function(e){
+                console.log(e.which);
+            });
+        });
+    </script>
+</body>
+</html>

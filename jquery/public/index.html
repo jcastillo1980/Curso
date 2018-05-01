@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="./img/favicon.ico" type="image/x-icon">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="./js/jquery-3.3.1.min.js"></script>
+    <title>Probando jQuery each</title>
+</head>
+<body>
+
+    <div class="elemento" data-key-element="run">esto es un elememnto 1</div>
+    <div class="elemento">esto es un elememnto 2</div>
+    <div class="elemento">esto es un elememnto 3</div>
+    <div class="elemento">esto es un elememnto 4</div>
+    <div class="elemento">esto es un elememnto 5</div>
+    <div class="elemento">esto es un elememnto 6</div>
+    <div class="elemento">esto es un elememnto 7</div>
+    <div class="elemento">esto es un elememnto 8</div>
+    <div class="elemento">esto es un elememnto 9</div>
+    <div class="elemento">esto es un elememnto 10</div>
+
+
+    <script>
+        $(document).ready(function(){
+            $('.elemento').css('color','#FF00FF');
+            $('.elemento').each(function(k,v){
+                if(k == 3)
+                {
+                    $(v).css('color','#00FF00');
+                }
+                var keyElement = $(v).attr('data-key-element');
+                if(typeof(keyElement) != 'undefined')
+                {
+                    console.log(keyElement);
+                }
+                
+            });
+
+            var t1 = setInterval(function()
+            {
+                $.ajax({
+                    url:"./ajax"
+                    ,dataType: "json"
+                    ,timeout: 5000
+                    ,success: function(rr){
+                        console.log(rr);
+                        if(typeof(rr) == 'object')
+                        {
+                            for(var i in rr)
+                            {
+                                console.log("["+i+"]->["+rr[i]+"]")
+                            }
+                        }
+                    }
+                    ,error: function(jj,tt,ee)
+                    {
+                        Location.reload();
+                    }
+                });
+                //$($(".elemento")[1]).text(new Date())
+            },8000)
+        })
+    </script>
+</body>
+</html>

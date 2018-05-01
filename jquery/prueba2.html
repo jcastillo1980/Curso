@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Prueba 2</title>
+    <style>
+        .bloque{
+            width: 300px;
+            height: 300px;
+            background: rgb(151, 219, 185);
+            color: blueviolet;
+            text-align: center;
+            float: left;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="bloque" id="p1">P1</div>
+    <div class="bloque" id="p2">P2</div>
+    <div class="bloque" id="p3">P3</div>
+    <div class="bloque" id="p4">P4</div>
+    <script>
+        function carga()
+        {
+            var st = document.getElementById('p1').style;
+            st.backgroundColor = '#224422';
+            for(var valor in st)
+            {
+                console.log("["+valor+"]->{"+typeof(document.getElementById('p1').style[valor])+"}["+document.getElementById('p1').style[valor]+"]");
+            }
+            
+            document.getElementById('p4').addEventListener('click',function(e)
+            {
+                var zz = document.querySelectorAll(".bloque[id=\"p2\"]");
+
+                for(var k = 0; k < zz.length; k++)
+                    zz.item(k).innerText = k+"->OK";
+            },false);
+        }
+        window.onload = carga;
+    </script>
+</body>
+</html>
