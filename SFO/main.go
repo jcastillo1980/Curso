@@ -49,5 +49,25 @@ func main() {
 		log.Println("Inicio del Servidor Puerto:", PuertoServidor)
 	}
 
+	//go func() {
 	log.Fatalln(http.ListenAndServe(fmt.Sprintf(":%d", PuertoServidor), nil))
+	//}()
+
+	/*var factory server.DriverFactory
+
+	factory = &filedriver.FileDriverFactory{
+		"./",
+		server.NewSimplePerm("root", "root"),
+	}
+	opts := &server.ServerOpts{
+		Factory:  factory,
+		Port:     2000,
+		Hostname: "127.0.0.1",
+	}
+	server := server.NewServer(opts)
+	err := server.ListenAndServe()
+
+	if err != nil && Debug == true {
+		log.Fatal("Error starting FTP server:", err)
+	}*/
 }

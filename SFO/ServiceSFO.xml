@@ -1,0 +1,17 @@
+<configuration>
+  <id>ServicioSFO</id>
+  <name>Servicio Programador Fuentes</name>
+  <description>Servidor apollo progrma de programación fuentes de AIRIS</description>
+  <executable>%BASE%\SFO.exe</executable>
+  <workingdirectory>C:\SFO\</workingdirectory>
+  <priority>Normal</priority>
+  <stoptimeout>15 sec</stoptimeout>
+  <stopparentprocessfirst>false</stopparentprocessfirst>
+  <startmode>Automatic</startmode>
+  <waithint>15 sec</waithint>
+  <sleeptime>1 sec</sleeptime>
+  <logpath>%BASE%\logs</logpath>
+  <log mode="append">
+  </log>
+  <env name="LM_LICENSE_FILE" value="host1;host2" />
+</configuration>
