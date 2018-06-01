@@ -1,0 +1,19 @@
+{
+  "name": "node1",
+  "version": "1.0.0",
+  "description": "Prueba de Node",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "Javier Castillo Calvo <jcastillo@xuitec.com>",
+  "license": "MIT",
+  "dependencies": {
+    "colors": "^1.2.5",
+    "console-timestamp": "^0.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.4"
+  }
+}
