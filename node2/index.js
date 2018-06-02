@@ -2,6 +2,9 @@ const express = require('express');
 const sql = require("mssql");
 const bodyParser = require('body-parser')
 const app = express();
+const sqllib = require('./sqllib.js');
+const moment = require('moment');
+
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
@@ -11,7 +14,7 @@ app.get("/mi/",(req,res)=>
     res.json(req.body)
 });
 
-app.get('/api/:max', function (req, res) 
+app.get('/api/list/:max', function (req, res) 
 {
    
     let re = new sql.Request();
@@ -27,6 +30,14 @@ app.get('/api/:max', function (req, res)
     });
 
     
+});
+
+app.get('/api/log',function(req,res)
+{
+    sqllib.insert(sql,"log_procesos",{texto:'algo','st':moment().unix(),'tipo':3},function(err,result)
+    {
+        res.status(200).send({'err':err,'result':result});
+    });
 });
 
     // config for your database
