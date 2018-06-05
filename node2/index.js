@@ -53,7 +53,9 @@ app.get('/api/log',function(req,res)
     
         if (err) console.log(err);
 
-        var server = app.listen(5000, function () {
+        var server = app.listen(5000, function () 
+        {
+            sqllib.setConexion(sql);
             console.log('Server is running..');
             console.log("Esto es h y funciona bien, la h funciona bien? h? hhh");
         });
