@@ -19,12 +19,12 @@ module.exports.update = function(table,campos,filtro,fun)
     {
         if(primero == true)
         {
-            txtkeys = keys[i]+"= @"+(i+1);
+            txtkeys = keys[i]+"=@"+(i+1);
             primero = false; 
         }
         else
         {
-            txtkeys = ","+keys[i]+"= @"+(i+1);
+            txtkeys = txtkeys + ","+keys[i]+"=@"+(i+1);
         }
 
         req.input((i+1) + "",campos[keys[i]]);
@@ -35,8 +35,9 @@ module.exports.update = function(table,campos,filtro,fun)
         txtfiltros = filtro;
     }
 
-    req.query(texto = "update " + tabla + " set "+txtkeys + " " + txtfiltros, function (err, resultado) 
+    req.query(texto = "update " + table + " set "+txtkeys + " " + txtfiltros, function (err, resultado) 
     {
+        //console.log(texto);
         fun(err, resultado);
     });
 }
@@ -69,8 +70,29 @@ module.exports.insert = function(tabla, campos, fun)
 
     req.query(texto = "insert into " + tabla + " ("+txtkeys+") values ("+txtvalores+"); SELECT SCOPE_IDENTITY() AS id;", function (err, resultado) 
     {
+        //console.log(texto);
         fun(err, resultado);
     });
 
     console.log("texto: ", texto);
+}
+
+module.exports.query = function(sqlTexto,campos, fun)
+{
+
+    let req = new sql.Request();
+    if(campos != null)
+    {
+        let i = 0;
+        for(i = 0; i < campos.length;i++)
+        {
+            req.input((i+1) + "", campos[i] );
+        }
+    }
+
+    req.query(sqlTexto, function(err, resultado) 
+    {
+        console.log(sqlTexto);
+        fun(err, resultado);
+    });
 }
