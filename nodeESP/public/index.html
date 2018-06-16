@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Prueba</title>
+    <style>
+        h1{
+            background-color: cadetblue;
+            border-color: black;
+            border-width: 0.1rem;
+            border-style: solid;
+            
+        }
+        p{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+        <h1><center>Esto mola</center></h1>
+        <p>
+            Valor: <input type="text" size="20" maxlength="100" id="valor">
+        </p>
+        <p>
+            <button onclick="javascript:pide()">Pulsa aqui</button>
+        </p>
+
+
+    <script>
+        function ajaxPost(url,contenido,callbackOK, callbackFAIL) 
+        {
+            // De esta forma se obtiene la instancia del objeto XMLHttpRequest
+            if(window.XMLHttpRequest) 
+            {
+                connection = new XMLHttpRequest();
+            }
+            else if(window.ActiveXObject) 
+            {
+                connection = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+
+            connection.onreadystatechange = function()
+            {
+                if(this.readyState == XMLHttpRequest.DONE) 
+                {
+                    if(this.status == 200)
+                        callbackOK(this.responseText);
+                    else
+                        callbackFAIL();
+                }
+            };
+            //connection.onerror = callbackFAIL;
+
+            connection.open('POST', url,true);
+            //connection.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            connection.send(contenido);
+        }
+
+   
+        function pide()
+        {
+            document.getElementById('valor').value
+            ajaxPost('/api/valor',document.getElementById('valor').value,function(cont){alert("["+cont+"]");}, function(){alert("FALLLOOOOO");});
+        }
+        
+
+    </script>
+</body>
+</html>
