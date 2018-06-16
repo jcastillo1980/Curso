@@ -2,7 +2,7 @@ const express = require('express');
 
 
 
-module.exports.routerEquipos = function(cluster)
+module.exports.routerEquipos = function(cluster,sqllib)
 {
     var router = express.Router();
 
@@ -28,6 +28,43 @@ module.exports.routerEquipos = function(cluster)
             conosle.log("me han matado a los 100ms");
             process.exit(-1);
         });
+    });
+
+    router.get("/mi",(req,res)=>
+    {
+        res.json(req.body)
+    });
+    
+    
+    router.get('/uplog/:id',function(req,res)
+    {
+        sqllib.update ("log_procesos",{texto:'mas cosas','st':moment().unix(),'tipo':4},`where id='${req.params.id}'`,function(error,respuesta)
+        {
+            res.status(200).send({'error':error,'resultado':respuesta});
+        });
+    });
+    
+    router.get('/log',function(req,res)
+    {
+        sqllib.insert("log_procesos",{texto:'algo','st':moment().unix(),'tipo':3},function(err,result)
+        {
+            res.status(200).send({'error':err,'resultado':result});
+        });
+    });
+    
+    router.post('/query', function(req,res)
+    {
+        if(typeof(req.body.sqltexto) == 'undefined')
+        {
+            res.status(200).send({'error':'no existe campo post sqltexto'});
+        }
+        else
+        {
+            sqllib.query(req.body.sqltexto,null,function(err,result)
+            {
+                res.status(200).send({'error':err,'resultado':result});
+            });
+        }
     });
 
     return router;

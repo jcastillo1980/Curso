@@ -1,22 +1,7 @@
 const colors = require('colors');
-const path = require('path');
-const express = require('express');
-const bodyParser = require('body-parser');
-const cookieParser = require('cookie-parser');
-const methodOverride = require('method-override');
 const cluster = require('cluster');
 const os = require('os');
-var PORT = process.env.port || 5000;
 
-var app = express()
-
-app.disable('x-powered-by');
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(methodOverride('_method'));
-app.use('/api',require('./controllers/ctrlEquipos.js').routerEquipos(cluster));
 
 if (cluster.isMaster) 
 {
@@ -53,8 +38,50 @@ else
         console.log("Soy ",process.pid,":",message);
     });
 
-    app.listen(PORT,function()
+    const path = require('path');
+    const express = require('express');
+    const bodyParser = require('body-parser');
+    const cookieParser = require('cookie-parser');
+    const methodOverride = require('method-override');
+    const sqllib = require('./lib/sqllib.js');
+    const sql = require("mssql");
+    
+    var PORT = process.env.port || 5000;
+
+    var app = express()
+    
+    app.disable('x-powered-by');
+    app.use(bodyParser.urlencoded({ extended: false }));
+    app.use(bodyParser.json());
+    app.use(cookieParser());
+    app.use(express.static(path.join(__dirname, 'public')));
+    app.use(methodOverride('_method'));
+
+    // config for your database
+    var config = {
+        user: 'externo',
+        password: 'externo',
+        server: 'oficina.xuitec.com', 
+        database: 'lecContador' 
+    };
+
+    // connect to your database
+    sql.connect(config, function (err) 
     {
-        console.log(`http://127.0.0.1:${PORT}`);
+
+        if (err)
+        {
+            console.log(err);
+            process.exit(-1);
+        } 
+
+        app.listen(PORT, function () 
+        {
+            sqllib.setConexion(sql);
+            app.use('/api',require('./controllers/ctrlEquipos.js').routerEquipos(cluster,sqllib));
+            console.log(`Servidor en Marcha http://127.0.0.1:${PORT}`);
+        });
+
     });
+
 }
