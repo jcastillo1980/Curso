@@ -25,6 +25,7 @@ if (cluster.isMaster)
     {
         cluster.fork();
     }
+    
     cluster.on('online', function(worker) 
     {
         console.log('Worker ' + worker.process.pid + ' is online');
@@ -37,13 +38,13 @@ if (cluster.isMaster)
         cluster.fork();
     });
 
-    setTimeout(function()
+    /*setTimeout(function()
     {
         for (const id in cluster.workers) 
         {
             cluster.workers[id].send("tomaaaa");
         }
-    },10000);
+    },10000);*/
 } 
 else 
 {
