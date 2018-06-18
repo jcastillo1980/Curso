@@ -19,12 +19,55 @@
     </style>
 </head>
 <body>
-        <h1><center>Esto mola</center></h1>
+        <h1><center>WIFI SUTEP</center></h1>
         <p>
-            Valor: <input type="text" size="20" maxlength="100" id="valor">
+            MODE Wifi:
+            <select id="modewifi">
+                <option value="0">Sin Seguridad</option>
+                <option value="1">WPA2</option>
+            </select>
         </p>
         <p>
-            <button onclick="javascript:pide()">Pulsa aqui</button>
+            NAME SSID:
+            <input type="text" size="20" maxlength="31" id="ssid">
+        </p>
+        <p>
+            PASSWORD:
+            <input type="text" size="20" maxlength="31" id="ssid">
+        </p>
+        <p>
+            MODE IP:
+            <select id="modeip">
+                <option value="0">DHCP</option>
+                <option value="1">STATIC</option>
+            </select>
+        </p>
+        <p>
+            IP:
+            <input type="text" size="2" maxlength="2" id="ip1">&nbsp;:&nbsp;
+            <input type="text" size="2" maxlength="2" id="ip2">&nbsp;:&nbsp;
+            <input type="text" size="2" maxlength="2" id="ip3">&nbsp;:&nbsp;
+            <input type="text" size="2" maxlength="2" id="ip4">
+        </p>
+        <p>
+            MASK:
+            <input type="text" size="2" maxlength="2" id="mask1">&nbsp;:&nbsp;
+            <input type="text" size="2" maxlength="2" id="mask2">&nbsp;:&nbsp;
+            <input type="text" size="2" maxlength="2" id="mask3">&nbsp;:&nbsp;
+            <input type="text" size="2" maxlength="2" id="mask4">
+        </p>
+        <p>
+            ROUTER:
+            <input type="text" size="2" maxlength="2" id="router1">&nbsp;:&nbsp;
+            <input type="text" size="2" maxlength="2" id="router2">&nbsp;:&nbsp;
+            <input type="text" size="2" maxlength="2" id="router3">&nbsp;:&nbsp;
+            <input type="text" size="2" maxlength="2" id="router4">
+        </p>
+        <p>&nbsp;</p>
+        <p>
+            <button onclick="javascript:read()">Leer Datos</button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button onclick="javascript:write_reset()">Escribir Datos y Reset</button>
         </p>
 
 
@@ -63,6 +106,11 @@
         {
             document.getElementById('valor').value
             ajaxPost('/api/valor',document.getElementById('valor').value,function(cont){alert("["+cont+"]");}, function(){alert("FALLLOOOOO");});
+        }
+
+        function sacaValores()
+        {
+
         }
         
 
