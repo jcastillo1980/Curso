@@ -13,7 +13,27 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
-
+// variables
+var idmodewifi = '0';
+var idssid = '';
+var ispassword = '';
+var idipmode = '0';
+var idip1 = '192';
+var idip2 = '168';
+var idip3 = '0';
+var idip4 = '100';
+var idmask1 = '255';
+var idmask2 = '255';
+var idmask3 = '255';
+var idmask4 = '0';
+var idrouter1 = '192';
+var idrouter2 = '168';
+var idrouter3 = '0';
+var idrouter4 = '1';
+var iddns1 = '8';
+var iddns2 = '8';
+var iddns3 = '8';
+var iddns4 = '8';
 
 app.get('/api/name',function(req,res)
 {
@@ -28,20 +48,90 @@ app.get('/api/zo.html',function(req,res)
     res.send(index_html);
 }); 
 
-app.post('/api/valor',function(req,res)
+app.post('/api/write',function(req,res)
 {
     getRawBody(req, 
         {
             length: req.headers['content-length'],
             limit: '1mb',
             encoding: contentType.parse(req).parameters.charset
-        },function (err, string) 
+        },function (err, str) 
         {
             if (err) 
                 return next(err);
 
+            valores = str.split(',');
+            if(valores.length >= 20)
+            {
+                idmodewifi = valores[0];
+                idssid = valores[1];
+                ispassword = valores[2];
+                idipmode = valores[3];
+                idip1 = valores[4];
+                idip2 = valores[5];
+                idip3 = valores[6];
+                idip4 = valores[7];
+                idmask1 = valores[8];
+                idmask2 = valores[9];
+                idmask3 = valores[10];
+                idmask4 = valores[11];
+                idrouter1 = valores[12];
+                idrouter2 = valores[13];
+                idrouter3 = valores[14];
+                idrouter4 = valores[15];
+                iddns1 = valores[16];
+                iddns2 = valores[17];
+                iddns3 = valores[18];
+                iddns4 = valores[19];
+
+                res.set('Content-Type', 'text/plain');
+                res.status(200).send("1");
+            }
+            else
+            {
+                res.set('Content-Type', 'text/plain');
+                res.status(200).send("0");
+            }
+
+
+        });
+});
+
+app.post('/api/read',function(req,res)
+{
+    getRawBody(req, 
+        {
+            length: req.headers['content-length'],
+            limit: '1mb',
+            encoding: contentType.parse(req).parameters.charset
+        },function (err, str) 
+        {
+            if (err) 
+                return next(err);
+
+            valores =   idmodewifi+','
+                        +idssid+','
+                        +ispassword+','
+                        +idipmode+','
+                        +idip1+','
+                        +idip2+','
+                        +idip3+','
+                        +idip4+','
+                        +idmask1+','
+                        +idmask2+','
+                        +idmask3+','
+                        +idmask4+','
+                        +idrouter1+','
+                        +idrouter2+','
+                        +idrouter3+','
+                        +idrouter4+','
+                        +iddns1+','
+                        +iddns2+','
+                        +iddns3+','
+                        +iddns4;
+
             res.set('Content-Type', 'text/plain');
-            res.status(200).send("<<<"+string+">>>");
+            res.status(200).send(valores);
         });
 });
 

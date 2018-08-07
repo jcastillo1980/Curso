@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Setup Connectivity</title>
+    <style>
+        *{
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 1rem;
+        }
+        input,select{
+            font-size: 1.5rem; 
+            margin: 0.5rem;
+            padding: 0.5rem; 
+            border-width: 1pt;
+            border-color: black;
+            border-style: solid;
+            border-radius: 5pt;
+            text-align: center;           
+        }
+        .flabel{
+            text-align: center;
+            color:black;
+            background-color: rgb(228, 228, 228);
+            font-size: 1.5rem; 
+            margin: 0.5rem 8% 0.5rem 8%;
+            padding: 0.5rem;    
+        }
+        .fcontrol{
+            text-align: center;
+            margin: 0.5rem 8% 0.5rem 8%; 
+        }
+        .header{
+            padding: 0.5rem;
+            margin-bottom: 1.5rem;
+            margin-top: 1rem;
+            border-width: 1pt;
+            border-color: black;
+            border-style: solid;
+            border-radius: 5pt;
+            text-align: center;
+            color:black;
+            background-color: rgb(1, 141, 255);
+            font-size: 2rem;
+        }
+        .footer{
+            padding: 0.25rem;
+            margin: 1.5rem 0 2rem 0;
+            text-align: center;
+        }
+        .botonW{
+            background: #bfd255; /* Old browsers */
+            background: -moz-linear-gradient(top, #bfd255 0%, #8eb92a 50%, #72aa00 51%, #9ecb2d 100%); /* FF3.6-15 */
+            background: -webkit-linear-gradient(top, #bfd255 0%,#8eb92a 50%,#72aa00 51%,#9ecb2d 100%); /* Chrome10-25,Safari5.1-6 */
+            background: linear-gradient(to bottom, #bfd255 0%,#8eb92a 50%,#72aa00 51%,#9ecb2d 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bfd255', endColorstr='#9ecb2d',GradientType=0 );
+            border-width: 1pt;
+            border-color:grey;
+            border-style: solid;
+            border-radius: 3pt;
+            padding: 0.25rem;
+            color:rgb(65, 64, 64);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        .botonR{
+            background: #f5f6f6; /* Old browsers */
+            background: -moz-linear-gradient(top, #f5f6f6 0%, #dbdce2 21%, #b8bac6 49%, #dddfe3 80%, #f5f6f6 100%); /* FF3.6-15 */
+            background: -webkit-linear-gradient(top, #f5f6f6 0%,#dbdce2 21%,#b8bac6 49%,#dddfe3 80%,#f5f6f6 100%); /* Chrome10-25,Safari5.1-6 */
+            background: linear-gradient(to bottom, #f5f6f6 0%,#dbdce2 21%,#b8bac6 49%,#dddfe3 80%,#f5f6f6 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f6f6', endColorstr='#f5f6f6',GradientType=0 ); 
+            border-width: 1pt;
+            border-color:grey;
+            border-style: solid;
+            border-radius: 3pt;
+            padding: 0.25rem;
+            color:rgb(65, 64, 64);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        .botonW:hover,.botonR:hover{
+            border-color: black;
+            color:black;
+            font-weight: bolder;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">Setup Connectivity</div>
+    <div class="group">
+<div class="flabel">WIFI MODE</div>
+        <div class="fcontrol">
+            <select id="idmodewifi" style="width: 60%;text-align: center;">
+                <option value="0">&nbsp;&nbsp;&nbsp;&nbsp;NONE</option>
+                <option value="1">&nbsp;&nbsp;&nbsp;&nbsp;WPA2</option>
+            </select>
+        </div>
+<div class="flabel">SSID</div>
+        <div class="fcontrol">
+            <input type="text" id="idssid"  style="width: 60%" maxlength="31">
+        </div>
+<div class="flabel">PASSWORD</div>
+        <div class="fcontrol">
+            <input type="password" id="ispassword" style="width: 60%" maxlength="31">
+        </div>
+<div class="flabel">IP MODE</div>
+        <div class="fcontrol">
+            <select id="idipmode" style="width: 60%;text-align: center;">
+                <option value="0">&nbsp;&nbsp;&nbsp;&nbsp;DHCP</option>
+                <option value="1">&nbsp;&nbsp;&nbsp;&nbsp;STATIC</option>
+            </select>
+        </div>
+<div class="flabel">IP</div>
+        <div class="fcontrol">
+            <input type="text" id="idip1" style="width: 10%" maxlength="3">&nbsp;:&nbsp;
+            <input type="text" id="idip2" style="width: 10%" maxlength="3">&nbsp;:&nbsp;
+            <input type="text" id="idip3" style="width: 10%" maxlength="3">&nbsp;:&nbsp;
+            <input type="text" id="idip4" style="width: 10%" maxlength="3">
+        </div>
+<div class="flabel">MASK</div>
+        <div class="fcontrol">
+            <input type="text" id="idmask1" style="width: 10%" maxlength="3">&nbsp;:&nbsp;
+            <input type="text" id="idmask2" style="width: 10%" maxlength="3">&nbsp;:&nbsp;
+            <input type="text" id="idmask3" style="width: 10%" maxlength="3">&nbsp;:&nbsp;
+            <input type="text" id="idmask4" style="width: 10%" maxlength="3">
+        </div>
+    </div>
+<div class="flabel">ROUTER</div>
+    <div class="fcontrol">
+        <input type="text" id="idrouter1" style="width: 10%" maxlength="3">&nbsp;:&nbsp;
+        <input type="text" id="idrouter2" style="width: 10%" maxlength="3">&nbsp;:&nbsp;
+        <input type="text" id="idrouter3" style="width: 10%" maxlength="3">&nbsp;:&nbsp;
+        <input type="text" id="idrouter4" style="width: 10%" maxlength="3">
+    </div>
+<div class="flabel">DNS</div>
+    <div class="fcontrol">
+        <input type="text" id="iddns1" style="width: 10%" maxlength="3">&nbsp;:&nbsp;
+        <input type="text" id="iddns2" style="width: 10%" maxlength="3">&nbsp;:&nbsp;
+        <input type="text" id="iddns3" style="width: 10%" maxlength="3">&nbsp;:&nbsp;
+        <input type="text" id="iddns4" style="width: 10%" maxlength="3">
+    </div>
+</div>
+    <div class="footer">
+        <button class="botonR" onClick="clickRead()" style="margin-right: 10pt">Read</button>
+        <button class="botonW" onClick="clickWriteReset()">Write and Reset</button>
+    </div>
+
+    <script>
+        function ajaxPost(url,contenido,callbackOK, callbackFAIL) 
+        {
+            // De esta forma se obtiene la instancia del objeto XMLHttpRequest
+            if(window.XMLHttpRequest) 
+            {
+                connection = new XMLHttpRequest();
+            }
+            else if(window.ActiveXObject) 
+            {
+                connection = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+
+            connection.onreadystatechange = function()
+            {
+                if(this.readyState == XMLHttpRequest.DONE) 
+                {
+                    if(this.status == 200)
+                        callbackOK(this.responseText);
+                    else
+                        callbackFAIL();
+                }
+            };
+            //connection.onerror = callbackFAIL;
+
+            connection.open('POST', url,true);
+            //connection.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            connection.send(contenido);
+        }   
+
+        var runSend = false;
+
+        function clickWriteReset()
+        {
+            if(runSend == true)
+                return;
+
+            runSend = true;
+
+            var envio = document.getElementById('idmodewifi').value + ",";
+            envio = envio + document.getElementById('idssid').value + ",";
+            envio = envio + document.getElementById('ispassword').value + ",";
+            envio = envio + document.getElementById('idipmode').value + ",";
+            envio = envio + document.getElementById('idip1').value + ",";
+            envio = envio + document.getElementById('idip2').value + ",";
+            envio = envio + document.getElementById('idip3').value + ",";
+            envio = envio + document.getElementById('idip4').value + ",";
+            envio = envio + document.getElementById('idmask1').value + ",";
+            envio = envio + document.getElementById('idmask2').value + ",";
+            envio = envio + document.getElementById('idmask3').value + ",";
+            envio = envio + document.getElementById('idmask4').value + ",";
+            envio = envio + document.getElementById('idrouter1').value + ",";
+            envio = envio + document.getElementById('idrouter2').value + ",";
+            envio = envio + document.getElementById('idrouter3').value + ",";
+            envio = envio + document.getElementById('idrouter4').value + ",";
+            envio = envio + document.getElementById('iddns1').value + ",";
+            envio = envio + document.getElementById('iddns2').value + ",";
+            envio = envio + document.getElementById('iddns3').value + ",";
+            envio = envio + document.getElementById('iddns4').value + ",";
+
+            ajaxPost(   '/api/write',
+                        envio,
+                        function(cont)
+                        {
+                            runSend = false;
+                            try
+                            {
+                                cont = cont.split(',');
+                                if(cont[0] == '1')
+                                    alert("OK , The device is reset !!!");
+                                else
+                                    alert('Fail !!!');
+                            }
+                            catch(Error)
+                            {
+                                alert('Fail !!!');
+                            }
+                        }, 
+                        function()
+                        {
+                            runSend = false;
+                            alert('Fail Connection!!!');
+                        }
+                    );
+  
+        }
+
+        function clickRead()
+        {
+            if(runSend == true)
+                return;
+                
+            runSend = true;
+
+
+            ajaxPost(   '/api/read',
+                        "none",
+                        function(cont)
+                        {
+                            runSend = false;
+                            try
+                            {
+                                cont = cont.split(',');
+                                if(cont.length >= 20) 
+                                {
+                                    document.getElementById('idmodewifi').value = cont[0];
+                                    document.getElementById('idssid').value = cont[1];
+                                    document.getElementById('ispassword').value = cont[2];
+                                    document.getElementById('idipmode').value = cont[3];
+                                    document.getElementById('idip1').value = cont[4];
+                                    document.getElementById('idip2').value = cont[5];
+                                    document.getElementById('idip3').value = cont[6];
+                                    document.getElementById('idip4').value = cont[7];
+                                    document.getElementById('idmask1').value = cont[8];
+                                    document.getElementById('idmask2').value = cont[9];
+                                    document.getElementById('idmask3').value = cont[10];
+                                    document.getElementById('idmask4').value = cont[11];
+                                    document.getElementById('idrouter1').value = cont[12];
+                                    document.getElementById('idrouter2').value = cont[13];
+                                    document.getElementById('idrouter3').value = cont[14];
+                                    document.getElementById('idrouter4').value = cont[15];
+                                    document.getElementById('iddns1').value = cont[16];
+                                    document.getElementById('iddns2').value = cont[17];
+                                    document.getElementById('iddns3').value = cont[18];
+                                    document.getElementById('iddns4').value = cont[19]; 
+                                }
+                                else
+                                    alert('Fail !!!');
+                            }
+                            catch(Error)
+                            {
+                                alert('Fail !!!');
+                            }
+                        }, 
+                        function()
+                        {
+                            runSend = false;
+                            alert('Fail Connection!!!');
+                        }
+                    );
+        }
+    </script>
+   
+</body>
+</html>

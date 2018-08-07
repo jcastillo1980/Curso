@@ -1,5 +1,14 @@
 <?php
 
+/*
+    const char favicon[] PROGMEM = {
+    0x00, 0x00, 0x01, 0x00, 0x01, 0x00, 0x10, 0x10, 0x00, 0x00, 0x01, 0x00,
+    0x18, 0x00, 0x68, 0x03, 0x00,......... 0x00
+    };
+
+    server.send_P(200, "text/html", favicon, sizeof(favicon));
+ */
+
     echo "Programa de conversión\r\n";
     if(count($argv) < 2)
     {
@@ -16,6 +25,8 @@
         }
         $contenido = fread($fd, filesize($name));
         fclose($fd);
+
+        return $contenido;
 
         $retorno = "";
         $hay_espacio = false;
@@ -65,7 +76,7 @@
         else
         {
             $nameVar = str_replace(".","_",$argv[$I]);
-            fprintf($fd,"const char {$nameVar}[] = {");
+            fprintf($fd,"const char {$nameVar}[] PROGMEM = {");
             $primero = true;
             for($Y = 0; $Y < strlen($contenido); $Y++)
             {
