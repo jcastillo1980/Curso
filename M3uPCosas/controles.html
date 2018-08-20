@@ -29,16 +29,77 @@
             <select id="vg">
             </select>
         </div>
-        <div id="a_dim">&nbsp;a_dim
-
+        <div id="a_dim">Nivel:
+                <select id="vvdim">
+                </select>
         </div>
-        <div id="a_dimc" style="display:none">&nbsp;a_dimc
-
+        <div id="a_dimc" style="display:none">
+            <div>Nivel:
+                    <select id="vvdimc">
+                    </select>
+            </div>
+            <div>Color:
+                    <select id="vc">
+                    </select>
+            </div>
         </div>
-        <div id="a_setup" style="display:none">&nbsp;a_setup
-
-        </div>
-        <div id="a_setupp" style="display:none">&nbsp;a_setupp
+        <div id="a_setup" style="display:none">
+            <div>Nivel ON:
+                    <select id="vvon">
+                    </select>
+            </div>
+            <div>Tiempo ON:
+                    <select id="vton">
+                        <option value="0">10 seg</option>
+                        <option value="1">30 seg</option>
+                        <option value="2">1 min</option>
+                        <option value="3">3 min</option>
+                        <option value="4">5 min</option>
+                        <option value="5">15 min</option>
+                        <option value="6">30 min</option>
+                        <option value="7">1 h</option>
+                    </select>
+             </div>
+            <div>Nivel  OFF:
+                    <select id="vvoff">
+                    </select>
+            </div>
+            <div>Tiempo OFF:
+                    <select id="vtoff">
+                        <option value="0">No</option>
+                        <option value="1">30 seg</option>
+                        <option value="2">1 min</option>
+                        <option value="3">5 min</option>
+                        <option value="4">15 min</option>
+                        <option value="5">30 min</option>
+                        <option value="6">1 h</option>
+                        <option value="7">2 h</option>
+                    </select>
+            </div>
+            <div>Sensivilidad Presencia:
+                    <select id="vs">
+                        <option value="0">OFF</option>
+                        <option value="1">15%</option>
+                        <option value="2">30%</option>
+                        <option value="3">45%</option>
+                        <option value="4">60%</option>
+                        <option value="5">75%</option>
+                        <option value="6">90%</option>
+                        <option value="7">100%</option>
+                    </select>
+            </div>
+            <div>Luminosidad:
+                    <select id="vl">
+                        <option value="0">OFF</option>
+                        <option value="1">60 Lux</option>
+                        <option value="2">50 Lux</option>
+                        <option value="3">40 Lux</option>
+                        <option value="4">30 Lux</option>
+                        <option value="5">20 Lux</option>
+                        <option value="6">10 Lux</option>
+                        <option value="7">0 Lux</option>
+                    </select>
+            </div>
 
         </div>
         <div id="a_ron" style="display:none">&nbsp;a_ron
@@ -58,6 +119,12 @@
         {
             let selector = document.querySelector('#va');
             let selectorg = document.querySelector('#vg');
+            let selectorvdim = document.querySelector('#vvdim');
+            let selectorvdimc = document.querySelector('#vvdimc');
+            let selectorvc= document.querySelector('#vc');
+            let selectorvvon = document.querySelector('#vvon');
+            let selectorvvoff = document.querySelector('#vvoff');
+
             for(var i = 0; i < 28;i++)
             {
                 let el = document.createElement("option");
@@ -67,6 +134,41 @@
                 else
                     el.innerText = ""+i;
                 selectorg.appendChild(el);
+            }
+
+            for(var i = 0; i < 32; i++)
+            {
+                let el = document.createElement("option");
+                el.setAttribute("value", ""+i);
+                el.innerText = ""+i;
+                let el1 = document.createElement("option");
+                el1.setAttribute("value", ""+i);
+                el1.innerText = ""+i;
+                let el2 = document.createElement("option");
+                el2.setAttribute("value", ""+i);
+                el2.innerText = ""+i;
+
+                selectorvdim.appendChild(el);
+                selectorvdimc.appendChild(el1);
+                selectorvvon.appendChild(el2);
+            }
+
+            for(var i = 4; i < 32; i++)
+            {
+                let el = document.createElement("option");
+                el.setAttribute("value", ""+i);
+                el.innerText = ""+i;
+
+                selectorvvoff.appendChild(el);
+            }
+
+            for(var i = 0; i < 17; i++)
+            {
+                let el = document.createElement("option");
+                el.setAttribute("value", ""+i);
+                el.innerText = ""+i;
+
+                selectorvc.appendChild(el);          
             }
 
             selector.addEventListener("change",function(e)
@@ -97,7 +199,7 @@
                 }
                 else if(selector.value == "3")
                 {
-                    document.querySelector('#a_setupp').style.display = "";  
+                    document.querySelector('#a_setup').style.display = "";  
                     document.querySelector('#g_g').style.display = "";
                 }
                 else if(selector.value == "4")
