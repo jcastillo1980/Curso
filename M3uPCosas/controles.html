@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            background-color: blueviolet;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="m3control">
+        <div>Acción:
+            <select id="va">
+                <option value="0">Dimado</option>
+                <option value="1">Dimado Color</option>
+                <option value="2">Setup</option>
+                <option value="3">Setup por Pulsos</option>
+                <option value="4">Contacto ON</option>
+                <option value="5">Contacto OFF</option>
+                <option value="6">Pulsos de Reset</option>
+            </select>
+        </div>
+        <div id="g_g">Grupo:
+            <select id="vg">
+            </select>
+        </div>
+        <div id="a_dim">&nbsp;a_dim
+
+        </div>
+        <div id="a_dimc" style="display:none">&nbsp;a_dimc
+
+        </div>
+        <div id="a_setup" style="display:none">&nbsp;a_setup
+
+        </div>
+        <div id="a_setupp" style="display:none">&nbsp;a_setupp
+
+        </div>
+        <div id="a_ron" style="display:none">&nbsp;a_ron
+
+        </div>
+        <div id="a_roff" style="display:none">&nbsp;a_roff
+
+        </div>
+        <div id="a_rp" style="display:none">&nbsp;a_rp
+
+        </div>
+    </div>
+
+    <script>
+
+        function initCM3uP()
+        {
+            let selector = document.querySelector('#va');
+            let selectorg = document.querySelector('#vg');
+            for(var i = 0; i < 28;i++)
+            {
+                let el = document.createElement("option");
+                el.setAttribute("value", ""+i);
+                if(i == 0)
+                    el.innerText = "Todos";
+                else
+                    el.innerText = ""+i;
+                selectorg.appendChild(el);
+            }
+
+            selector.addEventListener("change",function(e)
+            {
+                document.querySelector('#a_dim').style.display = "none";
+                document.querySelector('#a_dimc').style.display = "none";
+                document.querySelector('#a_setup').style.display = "none";
+                document.querySelector('#a_setupp').style.display = "none";
+                document.querySelector('#a_ron').style.display = "none";
+                document.querySelector('#a_roff').style.display = "none";
+                document.querySelector('#a_rp').style.display = "none";
+                document.querySelector('#g_g').style.display = "none";
+
+                if(selector.value == "0")
+                {
+                    document.querySelector('#a_dim').style.display = "";
+                    document.querySelector('#g_g').style.display = "";
+                }
+                else if(selector.value == "1")
+                {
+                    document.querySelector('#a_dimc').style.display = "";
+                    document.querySelector('#g_g').style.display = "";
+                }  
+                else if(selector.value == "2")
+                {
+                    document.querySelector('#a_setup').style.display = "";
+                    document.querySelector('#g_g').style.display = "";
+                }
+                else if(selector.value == "3")
+                {
+                    document.querySelector('#a_setupp').style.display = "";  
+                    document.querySelector('#g_g').style.display = "";
+                }
+                else if(selector.value == "4")
+                {
+                    document.querySelector('#a_ron').style.display = "";
+                }
+                else if(selector.value == "5")
+                {
+                    document.querySelector('#a_roff').style.display = "";    
+                }               
+                else if(selector.value == "6")
+                {
+                    document.querySelector('#a_rp').style.display = "";  
+                }
+                    
+            });
+        }
+
+        // [va, vg, vvon, vton_c_nn, vvoff_tt, vtoff, vs, vl]
+        // [0 ,  0,    0,         0,        0,     0,  0,  0]
+        function setCM3uP(variables)
+        {
+
+        }
+
+        function getCM3uP(variables)
+        {
+
+        }
+
+        // responde con un buffer de 16bytes
+        function createBufferCM3uP(variables)
+        {
+
+        }
+
+        initCM3uP();
+    </script>
+</body>
+</html>
