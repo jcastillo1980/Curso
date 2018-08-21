@@ -14,8 +14,9 @@
 <body>
 
     <div class="m3control">
-        <div>Acción:
-            <select id="va">
+        <div>Acción:</div>
+        <div>
+			<select id="va">
                 <option value="0">Dimado</option>
                 <option value="1">Dimado Color</option>
                 <option value="2">Setup</option>
@@ -24,31 +25,45 @@
                 <option value="5">Contacto OFF</option>
                 <option value="6">Pulsos de Reset</option>
             </select>
+		</div>
+
+        <div id="g_g">
+			<div>Grupo:</div>
+            <div>
+				<select id="vg">
+            	</select>
+			</div>
         </div>
-        <div id="g_g">Grupo:
-            <select id="vg">
-            </select>
+		
+        <div id="a_dim">
+			<div>Nivel:</div>
+           	<div>
+				<select id="vvdim">
+               	</select>
+			</div>
         </div>
-        <div id="a_dim">Nivel:
-                <select id="vvdim">
-                </select>
-        </div>
+		
         <div id="a_dimc" style="display:none">
-            <div>Nivel:
-                    <select id="vvdimc">
-                    </select>
+            <div>Nivel:</div>
+			<div>
+            	<select id="vvdimc">
+              	</select>
             </div>
-            <div>Color:
-                    <select id="vc">
-                    </select>
+            <div>Color:</div>
+			<div>
+             	<select id="vc">
+               	</select>
             </div>
         </div>
+		
         <div id="a_setup" style="display:none">
-            <div>Nivel ON:
-                    <select id="vvon">
-                    </select>
+            <div>Nivel ON:</div>
+			<div>
+            	<select id="vvon">
+               	</select>
             </div>
-            <div>Tiempo ON:
+            <div>Tiempo ON:</div>
+			<div>
                     <select id="vton">
                         <option value="0">10 seg</option>
                         <option value="1">30 seg</option>
@@ -60,11 +75,13 @@
                         <option value="7">1 h</option>
                     </select>
              </div>
-            <div>Nivel  OFF:
+            <div>Nivel  OFF:</div>
+			<div>
                     <select id="vvoff">
                     </select>
             </div>
-            <div>Tiempo OFF:
+            <div>Tiempo OFF:</div>
+			<div>
                     <select id="vtoff">
                         <option value="0">No</option>
                         <option value="1">30 seg</option>
@@ -76,7 +93,8 @@
                         <option value="7">2 h</option>
                     </select>
             </div>
-            <div>Sensivilidad Presencia:
+            <div>Sensivilidad Presencia:</div>
+			<div>
                     <select id="vs">
                         <option value="0">OFF</option>
                         <option value="1">15%</option>
@@ -88,7 +106,8 @@
                         <option value="7">100%</option>
                     </select>
             </div>
-            <div>Luminosidad:
+            <div>Luminosidad:</div>
+			<div>
                     <select id="vl">
                         <option value="0">OFF</option>
                         <option value="1">60 Lux</option>
@@ -100,16 +119,27 @@
                         <option value="7">0 Lux</option>
                     </select>
             </div>
+        </div>
+		
+        <div id="a_ron" style="display:none">
 
         </div>
-        <div id="a_ron" style="display:none">&nbsp;a_ron
+		
+        <div id="a_roff" style="display:none">
 
         </div>
-        <div id="a_roff" style="display:none">&nbsp;a_roff
-
-        </div>
-        <div id="a_rp" style="display:none">&nbsp;a_rp
-
+		
+        <div id="a_rp" style="display:none">
+			<div>Numero Pulsos:</div>
+           	<div>
+				<select id="vnn">
+               	</select>
+			</div>
+			<div>Tiempo:</div>
+           	<div>
+				<select id="vtt">
+               	</select>
+			</div>
         </div>
     </div>
 
@@ -124,6 +154,25 @@
             let selectorvc= document.querySelector('#vc');
             let selectorvvon = document.querySelector('#vvon');
             let selectorvvoff = document.querySelector('#vvoff');
+			
+			let selectorvnn = document.querySelector('#vnn');
+			let selectorvtt = document.querySelector('#vtt');
+			
+			for(var i = 1; i< 21; i++)
+			{
+                let el = document.createElement("option");
+                el.setAttribute("value", ""+i);
+                el.innerText = ""+i;
+                selectorvnn.appendChild(el);				
+			}
+			
+			for(var i = 3; i< 21; i++)
+			{
+                let el = document.createElement("option");
+                el.setAttribute("value", ""+i);
+                el.innerText = ""+i;
+                selectorvtt.appendChild(el);				
+			}
 
             for(var i = 0; i < 28;i++)
             {
@@ -144,13 +193,10 @@
                 let el1 = document.createElement("option");
                 el1.setAttribute("value", ""+i);
                 el1.innerText = ""+i;
-                let el2 = document.createElement("option");
-                el2.setAttribute("value", ""+i);
-                el2.innerText = ""+i;
+
 
                 selectorvdim.appendChild(el);
                 selectorvdimc.appendChild(el1);
-                selectorvvon.appendChild(el2);
             }
 
             for(var i = 4; i < 32; i++)
@@ -158,8 +204,12 @@
                 let el = document.createElement("option");
                 el.setAttribute("value", ""+i);
                 el.innerText = ""+i;
+                let el2 = document.createElement("option");
+                el2.setAttribute("value", ""+i);
+                el2.innerText = ""+i;
 
                 selectorvvoff.appendChild(el);
+				selectorvvon.appendChild(el2);
             }
 
             for(var i = 0; i < 17; i++)
@@ -176,7 +226,6 @@
                 document.querySelector('#a_dim').style.display = "none";
                 document.querySelector('#a_dimc').style.display = "none";
                 document.querySelector('#a_setup').style.display = "none";
-                document.querySelector('#a_setupp').style.display = "none";
                 document.querySelector('#a_ron').style.display = "none";
                 document.querySelector('#a_roff').style.display = "none";
                 document.querySelector('#a_rp').style.display = "none";
@@ -222,12 +271,85 @@
         // [0 ,  0,    0,         0,        0,     0,  0,  0]
         function setCM3uP(variables)
         {
+            document.querySelector('#va').value = variables[0];
+            document.querySelector('#a_dim').style.display = "none";
+            document.querySelector('#a_dimc').style.display = "none";
+            document.querySelector('#a_setup').style.display = "none";
+            document.querySelector('#a_ron').style.display = "none";
+            document.querySelector('#a_roff').style.display = "none";
+            document.querySelector('#a_rp').style.display = "none";
+            document.querySelector('#g_g').style.display = "none";
+			
 
+            switch(variables[0])
+            {
+                case 0: 
+                    document.querySelector('#a_dim').style.display = "";
+                    document.querySelector('#g_g').style.display = "";
+					
+					document.querySelector('#vg').value = variables[1];
+					document.querySelector('#vvdim').value = variables[2];
+				break;
+                case 1:
+                    document.querySelector('#a_dimc').style.display = "";
+                    document.querySelector('#g_g').style.display = "";
+					
+					document.querySelector('#vg').value = variables[1];
+					document.querySelector('#vvdimc').value = variables[2];
+					document.querySelector('#vc').value = variables[3];  
+				break;
+                case 2:
+                    document.querySelector('#a_setup').style.display = "";
+                    document.querySelector('#g_g').style.display = "";
+					
+					document.querySelector('#vg').value = variables[1];
+					document.querySelector('#vvon').value = variables[2]; 
+					document.querySelector('#vton').value = variables[3]; 
+					document.querySelector('#vvoff').value = variables[4]; 
+					document.querySelector('#vtoff').value = variables[5];
+					document.querySelector('#vs').value = variables[6];
+					document.querySelector('#vl').value = variables[7];
+				break;
+                case 3:
+                    document.querySelector('#a_setup').style.display = "";  
+                    document.querySelector('#g_g').style.display = "";
+					
+					document.querySelector('#vg').value = variables[1];
+					document.querySelector('#vvon').value = variables[2]; 
+					document.querySelector('#vton').value = variables[3]; 
+					document.querySelector('#vvoff').value = variables[4]; 
+					document.querySelector('#vtoff').value = variables[5];
+					document.querySelector('#vs').value = variables[6];
+					document.querySelector('#vl').value = variables[7];
+				break;
+                case 4:
+					document.querySelector('#a_ron').style.display = ""; 
+				break;
+                case 5:
+					document.querySelector('#a_roff').style.display = ""; 
+				break;
+                case 6:
+					document.querySelector('#a_rp').style.display = "";
+					
+					document.querySelector('#vnn').value = variables[3];
+					document.querySelector('#vtt').value = variables[4]; 	
+				break;
+            }
         }
 
         function getCM3uP(variables)
         {
-
+			variables[0] = 0;variables[1] = 0;variables[2] = 0;variables[3] = 0;
+			variables[4] = 0;variables[5] = 0;variables[6] = 0;variables[7] = 0;
+/*
+               <option value="0">Dimado</option>
+                <option value="1">Dimado Color</option>
+                <option value="2">Setup</option>
+                <option value="3">Setup por Pulsos</option>
+                <option value="4">Contacto ON</option>
+                <option value="5">Contacto OFF</option>
+                <option value="6">Pulsos de Reset</option>
+*/
         }
 
         // responde con un buffer de 16bytes
@@ -237,6 +359,9 @@
         }
 
         initCM3uP();
+		//       [va, vg, vvon, vton_c_nn, vvoff_tt, vtoff, vs, vl]
+		setCM3uP([ 3,  1,   20,         2,        4,     2,  3, 0]);
+		
     </script>
 </body>
 </html>
