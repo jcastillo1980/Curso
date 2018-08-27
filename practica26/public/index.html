@@ -5,12 +5,106 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Probando Gorilla !!</title>
+    <link rel="stylesheet" href="./static/css/bootstrap.min.css">
     <link rel="stylesheet" href="./static/css/general.css">
 </head>
 <body>
     <h1>javier Castillo Calvo, Mas cosas</h1>
+    <h2 id="hh"></h2>
 
+    <script src="./static/js/jquery-3.3.1.min.js"></script>
+    <script src="./static/js/bootstrap.min.js"></script>
+    <script src="./static/js/utils.js"></script>
+    <script>
+        $$.onload(function()
+        {
+            /*var pepe = $$.get(false,"./api/v2/elementos", null,function(d){
+                console.log(d);
+            },function(){
+                console.log("error");
+            });
+            // (isJSON, uri,cbOPEN,cbCLOSE,cbFAIL,cbMESSAGE)
+            $$.open(true,"wss://echo.websocket.org",
+            function()
+            {
+                console.log("OPEN WS");
+                setInterval(function(){$$.send({pepe:"admin",edad:44,cosas:"nada"});},2000);
+            },
+            function(){console.log("CLOSE WS");},
+            function(){console.log("FAIL WS");},
+            function(cont){console.log("WS RECV:", cont );},
+            );*/
+            // function(xhrIsForm,url,query,cbOK,cbFAIL)
+            /*$$.get(true,"/api/v2/html/esto mola mas/",$$.jsonToQuery(
+            {
+                valor1: "el pepe",
+                valor2: "el tonto , sin mas",
+                valor3: 3333
+            }),function(cont)
+            {
+                var hh = document.getElementById("hh");
+                hh.innerHTML = "<div>Esto es <b>asi</b> de molon</div>";
 
-    <script src="./static/js/main.js"></script>
+                console.log(cont)
+            },function()
+            {
+                console.log("ERROR");
+            });*/
+
+            // function(xhrIsForm,url,query, contenido,cbOK,cbFAIL)
+            /*$$.post(true,"/api/v2/post",
+                {
+                    vq1: "mi query",
+                    vq2: 4466
+                },$$.jsonToQuery(
+                {
+                    pv1: "Esto no mola",
+                    pv2: "Pepe el tuerto!!",
+                    pv3: 44.44,
+                    pv4: "Caca"
+                }),function(cont)
+                {
+                    console.log("Restono post:",cont)
+                },function()
+                {
+                    console.log("FAIL POST");
+                });
+            */
+            /*$$.post(false,"/api/v2/postJ",
+            {
+                vq1: "mi query",
+                vq2: 4466
+            },
+            {
+                pv1: "Esto no mola",
+                pv2: "Pepe el tuerto!!",
+                pv3: 44,
+                pv4: "Caca"
+            },function(cont)
+            {
+                console.log("Restono post:",cont)
+            },function()
+            {
+                console.log("FAIL POST");
+            });*/
+            // (isJSON, uri,cbOPEN,cbCLOSE,cbFAIL,cbMESSAGE)
+            $$.open(true,"/api/v2/ws", 
+            function()
+            {
+                console.log("OPEN");
+            },
+            function()
+            {
+                console.log("CLOSE");
+            },function()
+            {
+                console.log("FAIL");
+            },function(cont)
+            {
+                console.log("RECV:",cont);
+            });
+
+        });
+    </script>
 </body>
 </html>
