@@ -11,6 +11,7 @@ import (
 	"github.com/gorilla/mux"
 	"github.com/gorilla/websocket"
 	"github.com/jcastillo1980/Curso/practica26/nocache"
+	"github.com/jcastillo1980/Curso/practica26/token"
 	"github.com/jcastillo1980/Curso/practica26/tools"
 )
 
@@ -148,6 +149,7 @@ func funcDefault(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	log.Println("Esto es un servidor de prueba en GO   s!!")
+	log.Println(token.GenToken("javier", "1"))
 
 	router := mux.NewRouter().StrictSlash(true)
 
