@@ -2,16 +2,29 @@ package main
 
 import (
 	"bufio"
+	"crypto/tls"
+	"encoding/csv"
 	"fmt"
+	"io"
+	"io/ioutil"
 	"log"
 	"math/rand"
 	"net"
+	"net/http"
 	"os"
 	"path/filepath"
 	"strconv"
 	"strings"
 	"time"
 )
+
+type Cosas struct {
+	valor int `json:"value"`
+}
+
+func (c Cosas) String() string {
+	return fmt.Sprintf("<%d>", c.valor)
+}
 
 func init() {
 	log.Println("Hola Mundo")
@@ -64,17 +77,101 @@ func mainServer() {
 }
 
 // ReadDirectorio ?????
-func ReadDirectorio(filtro string) {
+func ReadDirectorio(filtro string) []string {
 	files, err := filepath.Glob(filtro)
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Println(files)
+	return files
+}
+
+// LeerCSV ????
+func LeerCSV(file string) map[string]string {
+
+	resp, err := os.Open(file)
+	if err != nil {
+		return nil
+	}
+	defer resp.Close()
+
+	r := csv.NewReader(resp)
+	r.Comma = ';'
+	r.FieldsPerRecord = 0
+
+	mapa := make(map[string]string)
+	nombres := []string{}
+
+	record, err := r.Read()
+	if err == io.EOF {
+		return nil
+	}
+	if err != nil {
+		log.Println(err)
+		return nil
+	}
+
+	for _, v := range record {
+		nombres = append(nombres, v)
+	}
+
+	record, err = r.Read()
+	if err == io.EOF {
+		return nil
+	}
+	if err != nil {
+		log.Println(err)
+		return nil
+	}
+
+	for i, v := range record {
+		mapa[nombres[i]] = v
+	}
+
+	return mapa
+}
+
+// GetWeb ????
+func GetWeb() {
+	link := "https://eslaremotecontroller.tk"
+
+	tr := &http.Transport{
+		TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
+	}
+	client := &http.Client{Transport: tr}
+	response, err := client.Get(link)
+	if err != nil {
+		fmt.Println(err)
+	}
+	defer response.Body.Close()
+
+	content, _ := ioutil.ReadAll(response.Body)
+	s := strings.TrimSpace(string(content))
+
+	log.Println(s)
 }
 
 func main() {
 
-	ReadDirectorio("*")
+	// obj := Cosas{2222}
+	// fmt.Println(obj)
+
+	// db.UpdateName(37, "zzzzzzzzzo")
+	// db.ListaNombres()
+	// db.ListaNombresMS()
+
+	GetWeb()
+
+	os.Exit(-1)
+
+	l := ReadDirectorio("/Users/javiercastillocalvo/Downloads/*.csv")
+	for _, v := range l {
+		fmt.Println("-------------------------------------------------------")
+		fmt.Println("FILA:", v)
+		fmt.Println("-------------------------------------------------------")
+		fmt.Printf("%#v\r\n", LeerCSV(v))
+		fmt.Println("*******************************************************")
+	}
+
 	os.Exit(-1)
 
 	mm := map[string]string{}
