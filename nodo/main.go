@@ -159,7 +159,10 @@ func PostWeb() {
 		TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
 	}
 	client := &http.Client{Transport: tr}
-	response, err := client.PostForm(link, url.Values{"key": {"Value"}, "id": {"123"}})
+	response, err := client.PostForm(link, url.Values{
+		"key": {"Value1", "value2", "value3"},
+		"id":  {"123"},
+	})
 	if err != nil {
 		log.Println(err)
 	}
