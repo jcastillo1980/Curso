@@ -11,6 +11,7 @@ import (
 	"math/rand"
 	"net"
 	"net/http"
+	"net/url"
 	"os"
 	"path/filepath"
 	"strconv"
@@ -140,7 +141,27 @@ func GetWeb() {
 	client := &http.Client{Transport: tr}
 	response, err := client.Get(link)
 	if err != nil {
-		fmt.Println(err)
+		log.Println(err)
+	}
+	defer response.Body.Close()
+
+	content, _ := ioutil.ReadAll(response.Body)
+	s := strings.TrimSpace(string(content))
+
+	log.Println(s)
+}
+
+// PostWeb ???
+func PostWeb() {
+	link := "https://eslaremotecontroller.tk/pruebaPost.php"
+
+	tr := &http.Transport{
+		TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
+	}
+	client := &http.Client{Transport: tr}
+	response, err := client.PostForm(link, url.Values{"key": {"Value"}, "id": {"123"}})
+	if err != nil {
+		log.Println(err)
 	}
 	defer response.Body.Close()
 
@@ -159,7 +180,7 @@ func main() {
 	// db.ListaNombres()
 	// db.ListaNombresMS()
 
-	GetWeb()
+	PostWeb()
 
 	os.Exit(-1)
 
