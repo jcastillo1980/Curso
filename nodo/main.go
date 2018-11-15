@@ -174,6 +174,12 @@ func PostWeb() {
 	log.Println(s)
 }
 
+// TStoTSDAY ?????
+func TStoTSDAY(ts int64, ll *time.Location) int64 {
+	tim := time.Unix(ts, 0).In(ll)
+	return time.Date(tim.Year(), tim.Month(), tim.Day(), 0, 0, 0, 0, ll).Unix()
+}
+
 func main() {
 
 	// obj := Cosas{2222}
@@ -183,7 +189,16 @@ func main() {
 	// db.ListaNombres()
 	// db.ListaNombresMS()
 
-	PostWeb()
+	//PostWeb()
+	ll, _ := time.LoadLocation("Europe/Madrid")
+
+	tsInicio := time.Unix(1540935027, 0).In(ll).Unix()
+
+	for i := 0; i < 10; i++ {
+		tsInicio = TStoTSDAY(tsInicio, ll) + 15*60
+		log.Println(time.Unix(tsInicio, 0).In(ll))
+		tsInicio += 26 * 60 * 60
+	}
 
 	os.Exit(-1)
 
