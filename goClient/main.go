@@ -136,4 +136,19 @@ func main() {
 
 	log.Printf("[%s] %d\r\n", resultado, len(resultado))
 
+	//rd := strings.NewReader("Esto un pruba y nada mas")
+
+	/*for {
+		bb, rr := os.Stdin.Read
+		if rr != nil {
+			if rr == io.EOF {
+				log.Fatal("Final")
+			} else {
+				log.Fatal(rr)
+			}
+		}
+
+		log.Println(bb)
+	}*/
+
 }
