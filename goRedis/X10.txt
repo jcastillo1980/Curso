@@ -1,0 +1,35 @@
+XM10:
+------------------------------------------------------------------------
+- Z(input change)
+- R(input comparador)
+- T(NCO)
+
+- Rout(out comparado)
+- Tinput(pin entrada normal)
+
+AM12
+------------------------------------------------------------------------
+(cuando se va alimentación memoria estado rele)
+- Z(input change)
+- R(input comparador)
+- T(NCO)
+
+- Led
+- Input pulsador
+- Rele
+
+BT
+------------------------------------------------------------------------
+- Z(input change)
+- R(input comparador)
+- T(NCO o PWM) 
+
+- Led
+- Input pulsador
+
+- RX
+- TX
+- SDA
+- SCL
+
+- BT enable

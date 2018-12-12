@@ -1,0 +1,134 @@
+-- pic16f1503 ******************************************************************
+-- *****************************************************************************
+--  1:VDD               14:VSS
+--  2:RA5               13:RA0/ICSPDAT
+--  3:RA4               12:RA1/ICSPCLK
+--  4:MCLR/VPP/RA3      11:RA2
+--  5:RC5               10:RC0
+--  6:RC4               9:RC1 (NCO)
+--  7:RC3               8:RC2
+
+
+include 16f1503   
+pragma target clock    16_000_000   
+
+pragma target OSC INTOSC_NOCLKOUT
+pragma target WDT DISABLED
+pragma target PWRTE ENABLED
+pragma target MCLR INTERNAL
+pragma target CP ENABLED
+pragma target BROWNOUT ENABLED
+pragma target CLKOUTEN DISABLED
+
+pragma target WRT DISABLED
+pragma target STVR ENABLED
+-- pragma target VOLTAGE
+-- pragma target LPBOR
+pragma target LVP DISABLED
+
+-- variables de la aplicación
+var volatile dword contador = 0
+
+-- configura oscilador
+OSCCON_SCS = 0
+OSCCON_IRCF = 0b1111
+
+-- deshabilita analog
+ANSELA = 0b0000_0000
+ANSELC = 0b0000_0000
+ADCON0 = 0b0000_0000
+ADCON1 = 0b0000_0000
+ADCON2 = 0b0000_0000
+CM1CON0 = 0b0000_0100
+CM1CON1 = 0b0000_0000
+CM2CON0 = 0b0000_0100
+CM2CON1 = 0b0000_0000
+
+-- configura puertos
+LATA = 0b0000_0000
+WPUA = 0b0000_0000
+TRISA = 0b1111_1110
+LATC = 0b0000_0000
+TRISC = 0b1111_1101
+
+
+-- configura NCO. 7865(0x1EB9)->>120010.3Hz
+NCO1CON_N1EN = 0
+PIE2_NCO1IE = 0
+APFCON_NCO1SEL = 0
+NCO1CLK_N1CKS = 0b01
+NCO1CLK_N1PWS = 0b000
+NCO1ACCH = 0
+NCO1ACCL = 0
+NCO1ACCU = 0
+NCO1INCL = 0xB9
+NCO1INCH = 0x1E
+NCO1CON_N1PFM = 0
+NCO1CON_N1POL = 0
+NCO1CON_N1OE = 0 -- salida desactivada
+NCO1CON_N1EN = 1
+
+
+-- configura timer y interrupción
+T2CON_TMR2ON = 0
+PR2 = 196 -- cada 0.050176 segundos
+TMR2 = 0
+T2CON_T2OUTPS = 0b1111
+T2CON_T2CKPS  = 0b11
+PIR1_TMR2IF = 0
+PIE1_TMR2IE = 1
+INTCON_PEIE = 1
+INTCON_GIE = 1
+T2CON_TMR2ON = 1
+
+
+procedure interrupt() is
+    pragma interrupt
+    -- comprobar  si timer1 
+    if (PIR1_TMR2IF == 1) then
+        PIR1_TMR2IF = 0 
+        if (contador != 0) then
+            contador = contador - 1
+        end if
+    end if
+end procedure
+
+procedure delayBase(dword in valor) is
+    contador = valor
+    forever loop
+        if (contador == 0)
+            exit loop
+        end if
+    end loop
+end procedure   
+
+function readFlash(word in direccion) is
+end function
+
+-- main bucle: encinde en intermitente
+alias  led       is pin_A0
+pin_A0_direction = OUTPUT
+
+forever loop
+    NCO1CON_N1OE = 1
+    led = ON
+    delayBase(20)
+    -- _usec_delay(100_000)
+    NCO1CON_N1OE = 0
+    led = OFF
+    delayBase(20)
+    -- _usec_delay(400_000)
+end loop
+
+procedure wait05ms() is
+    INTCON_TMR0IE = 0
+    OPTION_REG_TMR0CS = 0
+    OPTION_REG_PSA = 0
+    OPTION_REG_PS = 0b111
+    TMR0 = 248
+    INTCON_TMR0IF = 0
+    while (INTCON_TMR0IF==0) loop
+    end loop
+end procedure
+
+
