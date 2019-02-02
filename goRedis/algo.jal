@@ -131,4 +131,61 @@ procedure wait05ms() is
     end loop
 end procedure
 
+function readFlash(BYTE IN dir_h, BYTE IN dir_l) return BYTE is
+    PMADRL = dir_l
+    PMADRH = dir_h
+    PMCON1_CFGS = 0
+    PMCON1_RD = 1
+    ASM nop 
+    ASM nop
+    return PMDATL
+end function
+
+procedure unLock() is
+    PMCON2 = 0x55
+    PMCON2 = 0xAA
+    PMCON1_WR = 1
+    ASM nop 
+    ASM nop
+end procedure
+
+
+-- se debe INTCON_GIE = 0
+procedure eraseFlash(BYTE IN dir_h, BYTE IN dir_l) is
+    PMADRL = dir_l
+    PMADRH = dir_h
+    PMCON1_CFGS = 0
+    PMCON1_FREE = 1
+    PMCON1_WREN = 1
+    unLock()
+    PMCON1_WREN = 0
+end procedure
+
+procedure writeFlash(BYTE IN dir_h, BYTE IN dir_l, BYTE IN data, BIT IN latch) is
+    PMADRL = dir_l
+    PMADRH = dir_h
+    PMDATH = 0
+    PMDATL = data
+    PMCON1_LWLO = latch
+    PMCON1_CFGS = 0
+    PMCON1_FREE = 0
+    PMCON1_WREN = 1
+    unLock()
+end procedure
+
+var BYTE dato_flash
+
+-- nota: el ultimo row es 0x7f0, la ultima posición de memoria para el pic16f1503 es 0x7ff
+
+dato_flash = readFlash(0x07, 0x80)
+dato_flash = readFlash(0x07, 0x81)
+dato_flash = readFlash(0x07, 0x82)
+
+INTCON_GIE = 0
+eraseFlash(0x07, 0x80)
+writeFlash(0x07, 0x80, 10, 1)
+writeFlash(0x07, 0x81, 20, 1)
+writeFlash(0x07, 0x82, 30, 0)
+INTCON_GIE = 1
+
 
