@@ -1,3 +1,15 @@
+# iptable flag
+
+- -i eth0: interface de entrada
+- -o eth1: interface de salida
+- --sport : puerto origen
+- --dport : puerto destino
+- -p TCP: protocolo TCP,UDP,ICMP,ALL : por defecto es ALL
+- -s : ip origen 0.0.0.0/24
+
+- -n : todos los valores en en numeros no en nombres de puertos
+- flush -> iptables -F  && iptables -X && iptables -Z && iptables -t NAT -F
+
 # Ejemplos de iptable
 
 - sudo su
@@ -42,7 +54,7 @@
 ## NAT
 - SNAT: para salir internet, DNAT: para abrir puertos
 - echo 1 > /proc/sys/net/ipv4/ip_forward
-- iptables -t nat -A POSTROUTING -o eth0 -s 192.168.0.0/24 -j  MASQUERADE :  es SNAT --to IP_PUBLIC en modo automatico
+- iptables -t nat -A POSTROUTING -o eth0 -s 192.168.0.0/24 -j  MASQUERADE :  es SNAT --to IP_PUBLIC , (--to-source %SERVERIP%) en modo automatico
 - iptables -t nat -A PREROUTING -p tcp --dport 80 -i eth1 -j DNAT --to 5.6.7.8:8080
 
 # Ejemplos de route
