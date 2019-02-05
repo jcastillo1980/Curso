@@ -15,3 +15,4 @@
 - git commit -m "primer registro"
 - git log
 - git checkout xxxxxxxxxx : vuelve al commit xxxxxxxxxx sacado git log
+- 
